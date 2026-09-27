@@ -41,7 +41,7 @@ export const config = {
   videos: [
     { id: "dance", src: "", poster: "", pet: "dog" },
     { id: "chef", src: "", poster: "", pet: "cat" },
-    { id: "talking", src: "", poster: "", pet: "dog2" },
+    { id: "talking", src: "assets/videos/interview.mp4", poster: "assets/videos/interview-poster.jpg", pet: "dog2" },
   ],
 
   // ---- Images ----

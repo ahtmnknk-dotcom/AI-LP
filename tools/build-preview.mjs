@@ -14,6 +14,9 @@ function inline(html, root) {
     .replace(`<script src="${root}assets/js/main.js" defer></script>`, `<script>\n${js}\n</script>`)
     .replace(`href="${root}assets/img/favicon.svg"`, `href="${favicon}"`)
     .replace(/<link rel="apple-touch-icon"[^>]*>\n/, "")
+    // Videos/posters: embed as data URIs so the Artifact viewer can play them
+    .replace(/(data-src|poster)="(?:\.\.\/)?(assets\/videos\/[^"]+)"/g, (_, attr, f) =>
+      `${attr}="${dataUri("docs/" + f, f.endsWith(".mp4") ? "video/mp4" : "image/jpeg")}"`)
     .replace(/<title>[^<]*<\/title>/, "<title>MILKUNE STORIES</title>");
 }
 
