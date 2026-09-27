@@ -1,0 +1,11 @@
+{
+  "name": "milkune-stories-lp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MILKUNE STORIES landing page (static, bilingual JP/EN)",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && npx --yes serve docs -l 4173"
+  }
+}
