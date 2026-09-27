@@ -17,9 +17,9 @@ const cta = (label, id, variant = "primary", extra = "") =>
   `<a class="btn btn--${variant}" href="${esc(ig.url)}" target="_blank" rel="noopener" data-cta="${id}" ${extra}>${t(label)}</a>`;
 
 const sectionHead = ({ eyebrow, titleEn, title }, lang, id) => {
-  // JP: English display heading + Japanese heading. EN: English heading only.
+  // English display heading + a sub-heading in the page language.
   const h = titleEn || title;
-  const sub = titleEn && title ? `<p class="section__sub" lang="ja">${t(title)}</p>` : "";
+  const sub = titleEn && title ? `<p class="section__sub">${t(title)}</p>` : "";
   return `<header class="section__head reveal">
       ${eyebrow ? `<p class="eyebrow">${t(eyebrow)}</p>` : ""}
       <h2 class="section__title" id="${id}-title" ${lang === "ja" && titleEn ? 'lang="en"' : ""}>${t(h)}</h2>
@@ -108,8 +108,7 @@ export function renderPage(c) {
 
   const examples = `
   <section class="section examples" id="examples" aria-labelledby="examples-title">
-    ${sectionHead({ eyebrow: "", titleEn: c.examples.eyebrow, title: isJa ? c.examples.title : "" }, c.lang, "examples")}
-    ${!isJa ? `<p class="section__lead reveal">${t(c.examples.title)}</p>` : ""}
+    ${sectionHead({ eyebrow: "", titleEn: c.examples.eyebrow, title: c.examples.title }, c.lang, "examples")}
     <ul class="video-list" role="list">
       ${config.videos.map(videoCard).join("")}
     </ul>

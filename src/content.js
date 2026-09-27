@@ -222,15 +222,16 @@ export const content = {
 
     hero: {
       titleLines: ["Your pet.", "Your little dream,", "brought to life."],
-      sub: "The video of your pet you’ve always wanted to see.",
-      body: "Dance. Talk. Cook. Go on adventures.\nOr become the star of their own movie.",
+      sub: "See your pet the way you’ve always imagined — on video.",
+      body:
+        "Dance. Talk. Cook. Go on adventures.\nOr become the star of their own movie.\nWe create one-of-a-kind AI videos starring your pet.",
       price: fromPrice("sample"),
       cta: "CREATE MY PET MOVIE",
     },
 
     examples: {
       eyebrow: "SEE THE MAGIC ✦",
-      title: "Imagine your pet like this.",
+      title: "Here’s what your pet could star in.",
       items: {
         dance: { label: "DANCE", caption: "What if your pet could dance?" },
         chef: { label: "CHEF", caption: "What if your pet became a little chef?" },
@@ -246,21 +247,21 @@ export const content = {
     why: {
       eyebrow: "WHY MILKUNE?",
       titleEn: "AI can make videos.\nBut making the right one isn’t always easy.",
-      title: "",
+      title: "Anyone can make AI videos these days.\nSo let MILKUNE take care of the tricky parts.",
       lead:
-        "Making AI videos is easier than ever.\nBut getting a video of *your* pet that looks exactly the way you imagined can take a surprising amount of time and effort.",
+        "AI videos are easier to make than ever.\nBut turning *your own pet* into the exact video you pictured often takes more time and effort than you’d expect.",
       cards: [
         { icon: "prompt", title: "PROMPTS", text: "Not sure what prompts to write." },
-        { icon: "face", title: "CONSISTENCY", text: "The face, coat color or markings can end up looking like a different pet." },
-        { icon: "repeat", title: "GENERATIONS", text: "Even after many tries, the motion may not turn out the way you wanted." },
-        { icon: "coins", title: "AI COSTS", text: "Paying for multiple AI tools, and burning credits on failed generations." },
-        { icon: "scissors", title: "EDITING", text: "Editing everything yourself afterwards is a lot of work." },
+        { icon: "face", title: "CONSISTENCY", text: "Your pet’s face, coat color or markings can come out looking like a different animal." },
+        { icon: "repeat", title: "GENERATIONS", text: "You can generate again and again and still not get the movement you wanted." },
+        { icon: "coins", title: "AI COSTS", text: "Paying for several AI tools, and burning credits on generations that don’t work out." },
+        { icon: "scissors", title: "EDITING", text: "Editing everything together yourself afterwards is a lot of work." },
       ],
       solveTitle: "You bring the dream.\nWe handle the AI. ✦",
-      solveLead: "Just tell us what you’d love to see your pet do.",
+      solveLead: "All you do is tell us, “I’d love to see my pet do this!”",
       solveBody: [
-        "Prompt design, AI generation, trial and error, scene creation and editing — MILKUNE takes care of it all.",
-        "Order a finished video without worrying about multiple AI subscriptions, or the credits and time lost on failed generations.",
+        "Prompt design, AI generation, all the trial and error, scene creation and editing — MILKUNE handles every step for you.",
+        "No juggling multiple AI subscriptions, and no worrying about the credits or time lost on failed generations. You simply order the finished video.",
       ],
       cta: "TELL US YOUR IDEA →",
     },
@@ -268,17 +269,17 @@ export const content = {
     whatif: {
       eyebrow: "WHAT IF?",
       titleEn: "What if your pet could do anything?",
-      title: "",
+      title: "Here are a few ideas to get you dreaming.",
       items: [
         { icon: "dance", en: "DANCE", label: "Show off their moves" },
         { icon: "talk", en: "TALK", label: "Say what they’re thinking" },
-        { icon: "cook", en: "COOK", label: "Whip up a little meal" },
-        { icon: "adventure", en: "ADVENTURE", label: "Set off on a journey" },
+        { icon: "cook", en: "COOK", label: "Cook up something tasty" },
+        { icon: "adventure", en: "ADVENTURE", label: "Head off on an adventure" },
         { icon: "celebrate", en: "CELEBRATE", label: "Birthdays & anniversaries" },
         { icon: "movie", en: "MOVIE STAR", label: "Star in their own movie" },
         { icon: "message", en: "MESSAGE", label: "Say “I love you”" },
       ],
-      closing: "The little dreams that can’t happen in real life —\nMILKUNE turns them into a story.",
+      closing: "The little dreams that can’t come true in real life —\nMILKUNE turns them into a story.",
     },
 
     pricing: {
@@ -286,17 +287,17 @@ export const content = {
       title: "CHOOSE YOUR STORY",
       from: "FROM",
       plans: {
-        sample: { spec: "", desc: "Pick from our sample & trending videos, remade with your pet as the star." },
-        custom: { spec: "Up to 15 sec", desc: "Made from a reference video or your own “I’d love to see them do this” idea." },
-        original: { spec: "Up to 30 sec", desc: "A fully original story and world, created from scratch." },
-        business: { spec: "Commercial use", desc: "For shops, brands, social media, ads and other commercial use." },
+        sample: { spec: "", desc: "Choose from our sample and trending videos, recreated with your pet as the star." },
+        custom: { spec: "Up to 15 sec", desc: "Based on a reference video or your own “I’d love to see them do this” idea." },
+        original: { spec: "Up to 30 sec", desc: "A completely original video, from the story to the world it’s set in." },
+        business: { spec: "Commercial use OK", desc: "For commercial use by shops, brands, social media accounts, ads and more." },
       },
       personalBadge: "Personal use",
-      businessBadge: "Commercial",
-      note: "Final pricing may vary depending on length, complexity and production requirements.",
+      businessBadge: "Commercial use",
+      note: "Final pricing may vary depending on video length, content and production complexity.",
       noteSub: "",
       commercial:
-        "Personal plans (SAMPLE / TREND, CUSTOM SHORT, ORIGINAL MOVIE) are not licensed for commercial use. For commercial use, please choose the BUSINESS plan.",
+        "Personal plans (SAMPLE / TREND, CUSTOM SHORT, ORIGINAL MOVIE) may not be used commercially. If you’d like to use a video commercially, please choose the BUSINESS plan.",
       cta: "ASK ABOUT A PLAN",
     },
 
@@ -305,29 +306,29 @@ export const content = {
       titleEn: "From your pet to their own little movie.",
       title: "Ordering is easy.",
       steps: [
-        `DM “${kw}” on Instagram`,
-        "Tell us your idea & choose a plan",
-        "Receive your quote & delivery date",
-        "100% prepayment",
+        `Send us “${kw}” by Instagram DM`,
+        "Chat with us about your idea & plan",
+        "Get your quote & delivery date",
+        "Pay 100% upfront",
         "Send us the materials we need",
         "MILKUNE creates your video",
-        "Review the first draft → final delivery",
+        "Review the first draft → receive your finished video",
       ],
       note:
-        "The photos and videos we need depend on what you’d like to create.\nOnce we understand your idea, we’ll let you know exactly what to send.",
+        "The photos and videos we need depend on what you’d like to create.\nOnce we’ve heard your idea, we’ll let you know exactly what to send.",
       deliveryLabel: "DELIVERY",
-      delivery: "Same day to within 5 days",
+      delivery: "As fast as same day, within 5 days",
       cta: `DM “${kw}” TO START`,
     },
 
     brand: {
       title: "Not just an AI video.\nA little story starring someone you love.",
       body: [
-        "It’s not just about making them move with AI.",
+        "It’s about more than making them move with AI.",
         "“I always wished they could do this.”",
-        "We bring that little wish to life.",
+        "We turn that little wish into something you can watch.",
         "Videos that make you laugh.\nVideos that melt your heart.\nMessages for someone special.",
-        "A little story, only for your pet.",
+        "A little story, made only for your pet.",
       ],
     },
 
@@ -336,26 +337,26 @@ export const content = {
       title: "FAQ",
       items: [
         {
-          q: "How long does it take?",
-          a: ["Same day at the earliest, and within 5 days. Timing depends on the content and current orders."],
+          q: "How long does delivery take?",
+          a: ["As fast as same day, and within 5 days. Timing depends on your video and how many orders we have."],
         },
         {
           q: "What do I need to send?",
-          a: ["It depends on your video. Once we understand your idea, we’ll tell you which photos and videos we need."],
+          a: ["It depends on the video you’d like. Once we’ve confirmed your request, we’ll tell you which photos and videos we need."],
         },
         {
-          q: "Can I request revisions?",
+          q: "Can I ask for changes?",
           a: [
             "Your first revision is free, for up to one scene.",
-            "Further revisions, and changes to the content requested after production has started, are quoted separately depending on the scope and video length.",
-            "If the result clearly differs from what we agreed on, we handle that separately from regular customer-requested revisions.",
+            "Any further revisions — and any changes you ask for after production has started — are quoted separately, based on the scope of the changes and the length of the video.",
+            "If something needs fixing because of us — for example, the video clearly differs from what we agreed on — we handle it separately from regular customer-requested revisions.",
           ],
         },
-        { q: "Can I cancel?", a: ["Cancellations and refunds are not possible once production has started."] },
+        { q: "Can I cancel my order?", a: ["Once production has started, cancellations and refunds are not possible."] },
         {
           q: "Will it look exactly like my pet?",
           a: [
-            "Due to the nature of AI generation, fur, markings, expressions, body shape and movement may not perfectly match your pet.",
+            "Because of how AI generation works, your pet’s fur, markings, expressions, body shape and movements may not match them perfectly.",
           ],
         },
         {
@@ -370,10 +371,10 @@ export const content = {
 
     final: {
       titleEn: "What’s your pet’s little dream? ✦",
-      title: "Next, your pet takes the lead.",
+      title: "Next, it’s your pet’s turn to be the star.",
       body: [
         "Maybe they dance.\nMaybe they cook.\nMaybe they finally tell you how much they love you.",
-        "What would you love to see them do?",
+        "What would you love to see them do?\nTell us — we’re all ears.",
       ],
       price: fromPrice("sample"),
       cta: `💌 DM “${kw}” TO START`,
@@ -382,10 +383,10 @@ export const content = {
     stickyCta: "🐾 Create My Pet Movie",
 
     sheet: {
-      title: "Let’s talk on\nInstagram DM 🐾",
+      title: "Chat with us on\nInstagram DM 🐾",
       step1: `Open @${config.instagram.username} on Instagram`,
       step2: `Send us “${kw}” by DM`,
-      body: "No need to have your idea figured out yet — just say hi.",
+      body: "No need to have your idea all figured out — feel free to reach out.",
       open: "Open Instagram",
       copy: `Copy “${kw}”`,
       copied: "Copied ✓",

@@ -119,7 +119,14 @@
   if (!("IntersectionObserver" in window) || reduceMotion) {
     reveals.forEach(function (el) { el.classList.add("is-in"); });
   } else {
+    // Failsafe: if the observer never reports (e.g. inside some embedded
+    // viewers), show everything so no section stays invisible.
+    var ioAlive = false;
+    setTimeout(function () {
+      if (!ioAlive) reveals.forEach(function (el) { el.classList.add("is-in"); });
+    }, 1500);
     var ro = new IntersectionObserver(function (entries) {
+      ioAlive = true;
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add("is-in"); ro.unobserve(en.target); }
       });

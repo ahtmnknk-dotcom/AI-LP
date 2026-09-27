@@ -4,6 +4,7 @@ import { cpSync, mkdirSync, rmSync, writeFileSync, existsSync } from "node:fs";
 import { config } from "./src/config.js";
 import { content } from "./src/content.js";
 import { renderPage } from "./src/template.js";
+import "./tools/check-i18n.mjs"; // warns if any JP text lacks an EN counterpart
 
 const out = "docs";
 rmSync(out, { recursive: true, force: true });
