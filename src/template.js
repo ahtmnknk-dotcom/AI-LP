@@ -14,7 +14,7 @@ const ig = config.instagram;
 // Every CTA is a real link to Instagram DM (works without JS);
 // main.js intercepts it to show the guide sheet and track the click.
 const cta = (label, id, variant = "primary", extra = "") =>
-  `<a class="btn btn--${variant}" href="${esc(ig.dmUrl)}" target="_blank" rel="noopener" data-cta="${id}" ${extra}>${t(label)}</a>`;
+  `<a class="btn btn--${variant}" href="${esc(ig.url)}" target="_blank" rel="noopener" data-cta="${id}" ${extra}>${t(label)}</a>`;
 
 const sectionHead = ({ eyebrow, titleEn, title }, lang, id) => {
   // JP: English display heading + Japanese heading. EN: English heading only.
@@ -36,8 +36,7 @@ export function renderPage(c) {
 
   const runtime = {
     lang: c.lang,
-    dmUrl: ig.dmUrl,
-    profileUrl: ig.profileUrl,
+    instagramUrl: ig.url,
     keyword: ig.dmKeyword,
     sheet: c.sheet,
   };
@@ -261,7 +260,7 @@ export function renderPage(c) {
   <footer class="site-footer">
     <p class="site-footer__brand">${esc(config.brandName)}</p>
     <p class="site-footer__tagline" lang="en">${esc(c.footerTagline)}</p>
-    <a class="site-footer__ig" href="${esc(ig.profileUrl)}" target="_blank" rel="noopener" data-cta="footer_instagram" data-direct>
+    <a class="site-footer__ig" href="${esc(ig.url)}" target="_blank" rel="noopener" data-cta="footer_instagram" data-direct>
       ${icons.instagram}<span>@${esc(ig.username)}</span>
     </a>
     <p class="site-footer__copy">${esc(c.footer.copyright)}</p>
@@ -284,7 +283,7 @@ export function renderPage(c) {
         <li><span>2</span>${t(c.sheet.step2)}</li>
       </ol>
       <p class="sheet__body">${t(c.sheet.body)}</p>
-      <a class="btn btn--primary btn--block" href="${esc(ig.dmUrl)}" target="_blank" rel="noopener" data-sheet-open>${icons.instagram}<span>${t(c.sheet.open)}</span></a>
+      <a class="btn btn--primary btn--block" href="${esc(ig.url)}" target="_blank" rel="noopener" data-sheet-open>${icons.instagram}<span>${t(c.sheet.open)}</span></a>
       <button class="btn btn--ghost btn--block" type="button" data-copy data-copied-label="${esc(c.sheet.copied)}">${t(c.sheet.copy)}</button>
     </div>
   </div>`;
@@ -335,7 +334,7 @@ export function renderPage(c) {
       price: isJa ? p.jpy : p.usd,
       priceCurrency: isJa ? "JPY" : "USD",
     })),
-    sameAs: [ig.profileUrl],
+    sameAs: [ig.url],
   })}</script>
 <script>(function(){var q=new URLSearchParams(location.search),l=(q.get("lang")||"").toLowerCase();if(l&&l.indexOf("${isJa ? "en" : "ja"}")===0){q.delete("lang");var r=q.toString();location.replace("${altLang.href}"+(r?"?"+r:"")+location.hash);}})();</script>
 <script>window.MILKUNE=${JSON.stringify(runtime)};window.dataLayer=window.dataLayer||[];</script>

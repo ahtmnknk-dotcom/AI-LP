@@ -12,16 +12,15 @@ export const config = {
   brandName: "MILKUNE STORIES",
 
   // ---- Instagram (conversion) ----
+  // Every order / inquiry CTA on the page links to `url`.
+  // To change the account, edit ONLY this URL — the @username shown on
+  // the page is derived from it automatically.
   instagram: {
-    username: "milkune", // without "@"
+    url: "https://www.instagram.com/milkune_stories/",
     // DM keyword users are asked to send
     dmKeyword: "PET",
-    // Opens a DM thread in the Instagram app / web. Built from username by default.
-    get dmUrl() {
-      return `https://ig.me/m/${this.username}`;
-    },
-    get profileUrl() {
-      return `https://www.instagram.com/${this.username}/`;
+    get username() {
+      return new URL(this.url).pathname.split("/").filter(Boolean)[0] || "";
     },
   },
 

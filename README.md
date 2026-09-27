@@ -13,7 +13,7 @@
 
 | 変えたいもの | ファイル |
 | --- | --- |
-| Instagramアカウント・DMキーワード（`PET`） | `src/config.js` → `instagram` |
+| InstagramのURL（全CTAのリンク先）・DMキーワード（`PET`） | `src/config.js` → `instagram.url` / `dmKeyword` |
 | 料金（全セクション共通で反映） | `src/config.js` → `plans` |
 | サンプル動画・ポスター画像 | `src/config.js` → `videos`（`src` が空ならプレースホルダー表示） |
 | ロゴ画像 | `src/config.js` → `logo`（空ならテキストロゴ） |
@@ -40,9 +40,9 @@ npm run dev       # ビルドして http://localhost:4173 でプレビュー
 
 ## CTAの動き
 
-すべてのCTAは Instagram DM（`https://ig.me/m/<username>`）へのリンクです。
+すべての注文・問い合わせCTAは `config.instagram.url`（Instagramアカウント）へのリンクです。URLを変えると全CTAとフッター・表示される @ユーザー名 がまとめて変わります。
 JSが有効な場合は、タップ時に「DMで“PET”と送ってください」の案内シートを表示し、
-そこから Instagram DM を開く／「PET」をコピーできます（JSなしでも直接DMへ遷移）。
+そこから Instagram を開く／「PET」をコピーできます（JSなしでも直接Instagramへ遷移）。
 
 ## 計測（クリックトラッキング）
 
