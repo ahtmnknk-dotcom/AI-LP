@@ -106,18 +106,13 @@
       
       <li class="video-card reveal" style="--d:0ms">
         <div class="video-card__frame">
-          <div class="video-card__placeholder ph--1" role="img" aria-label="What if your pet could dance? — サンプル動画 準備中">
-            <svg class="deco-star ph-star a" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.5l2.3 7.2 7.2 2.3-7.2 2.3L12 20.5l-2.3-7.2L2.5 11l7.2-2.3z" fill="currentColor"/></svg><svg class="deco-star ph-star b" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.5l2.3 7.2 7.2 2.3-7.2 2.3L12 20.5l-2.3-7.2L2.5 11l7.2-2.3z" fill="currentColor"/></svg>
-            <div class="ph-pet"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-    <ellipse cx="56" cy="92" rx="17" ry="30" fill="#E9CFA8" stroke="#1F2F55" stroke-width="3" transform="rotate(30 56 92)"/>
-    <ellipse cx="144" cy="92" rx="17" ry="30" fill="#E9CFA8" stroke="#1F2F55" stroke-width="3" transform="rotate(-30 144 92)"/>
-    <circle cx="100" cy="115" r="50" fill="#FFF8EE" stroke="#1F2F55" stroke-width="3"/>
-    <circle cx="84" cy="112" r="6" fill="#1F2F55"/><circle cx="116" cy="112" r="6" fill="#1F2F55"/><circle cx="86" cy="110" r="2" fill="#fff"/><circle cx="118" cy="110" r="2" fill="#fff"/><ellipse cx="72" cy="126" rx="8" ry="5" fill="#F4AFC0" opacity=".8"/><ellipse cx="128" cy="126" rx="8" ry="5" fill="#F4AFC0" opacity=".8"/><path d="M94 124 q6 5 12 0" stroke="#1F2F55" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="120" rx="5" ry="3.5" fill="#1F2F55"/>
-    <g fill="#1F2F55"><path d="M30 44v-22l16-4v20" stroke="#1F2F55" stroke-width="3" fill="none"/><circle cx="26" cy="44" r="5"/><circle cx="42" cy="40" r="5"/>
-    <path d="M160 36v-18" stroke="#1F2F55" stroke-width="3"/><circle cx="156" cy="37" r="5"/></g>
-  </svg></div>
-            <span class="ph-note">サンプル動画 準備中</span>
-          </div>
+          <video class="video-card__video" muted playsinline loop preload="none"
+            poster="assets/videos/dance-poster.jpg" data-src="assets/videos/dance.mp4"
+            aria-label="What if your pet could dance?"></video>
+          <button class="video-card__toggle" type="button" aria-label="動画を再生"
+            data-label-play="動画を再生" data-label-pause="動画を一時停止">
+            <span class="i-play"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="i-pause"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/><rect x="13.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/></svg></span>
+          </button>
           <span class="video-card__label" lang="en">VIDEO 01 · DANCE</span>
         </div>
         <p class="video-card__caption" lang="en">What if your pet could dance?</p>

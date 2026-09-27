@@ -39,7 +39,7 @@ export const config = {
   // Put files in src/assets/videos/ and reference them as "assets/videos/xxx.mp4".
   // `poster` is optional (a 9:16 still image shown before playback).
   videos: [
-    { id: "dance", src: "", poster: "", pet: "dog" },
+    { id: "dance", src: "assets/videos/dance.mp4", poster: "assets/videos/dance-poster.jpg", pet: "dog" },
     { id: "chef", src: "", poster: "", pet: "cat" },
     { id: "talking", src: "assets/videos/interview.mp4", poster: "assets/videos/interview-poster.jpg", pet: "dog2" },
   ],
