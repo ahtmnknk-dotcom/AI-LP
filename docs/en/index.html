@@ -119,18 +119,13 @@
       </li>
       <li class="video-card reveal" style="--d:80ms">
         <div class="video-card__frame">
-          <div class="video-card__placeholder ph--2" role="img" aria-label="What if your pet became a little chef? — Sample video coming soon">
-            <svg class="deco-star ph-star a" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.5l2.3 7.2 7.2 2.3-7.2 2.3L12 20.5l-2.3-7.2L2.5 11l7.2-2.3z" fill="currentColor"/></svg><svg class="deco-star ph-star b" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.5l2.3 7.2 7.2 2.3-7.2 2.3L12 20.5l-2.3-7.2L2.5 11l7.2-2.3z" fill="currentColor"/></svg>
-            <div class="ph-pet"><svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-      <path d="M52 92 L60 44 L92 74Z M148 92 L140 44 L108 74Z" fill="#FFF8EE" stroke="#1F2F55" stroke-width="3" stroke-linejoin="round"/>
-      <circle cx="100" cy="115" r="52" fill="#FFF8EE" stroke="#1F2F55" stroke-width="3"/>
-      <path d="M70 58 a18 18 0 0 1 12-28 22 22 0 0 1 36 0 18 18 0 0 1 12 28z" fill="#fff" stroke="#1F2F55" stroke-width="3" stroke-linejoin="round"/>
-      <rect x="72" y="56" width="56" height="14" rx="4" fill="#fff" stroke="#1F2F55" stroke-width="3"/>
-      <circle cx="84" cy="112" r="6" fill="#1F2F55"/><circle cx="116" cy="112" r="6" fill="#1F2F55"/><circle cx="86" cy="110" r="2" fill="#fff"/><circle cx="118" cy="110" r="2" fill="#fff"/><ellipse cx="72" cy="126" rx="8" ry="5" fill="#F4AFC0" opacity=".8"/><ellipse cx="128" cy="126" rx="8" ry="5" fill="#F4AFC0" opacity=".8"/><path d="M94 124 q6 5 12 0" stroke="#1F2F55" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="120" rx="5" ry="3.5" fill="#1F2F55"/>
-      <path d="M50 118 h-18 M50 126 h-16 M150 118 h18 M150 126 h16" stroke="#1F2F55" stroke-width="2" stroke-linecap="round"/>
-    </svg></div>
-            <span class="ph-note">Sample video coming soon</span>
-          </div>
+          <video class="video-card__video" muted playsinline loop preload="none"
+            poster="../assets/videos/chef-poster.jpg" data-src="../assets/videos/chef.mp4"
+            aria-label="What if your pet became a little chef?"></video>
+          <button class="video-card__toggle" type="button" aria-label="Play video"
+            data-label-play="Play video" data-label-pause="Pause video">
+            <span class="i-play"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="i-pause"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/><rect x="13.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/></svg></span>
+          </button>
           <span class="video-card__label" lang="en">VIDEO 02 · CHEF</span>
         </div>
         <p class="video-card__caption" lang="en">What if your pet became a little chef?</p>
