@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"MILKUNE STORIES","description":"踊ったり、話したり、料理をしたり、冒険に出たり。あなたのペットが主役の、世界にひとつだけのAI動画を制作します。FROM ¥3,980 / $29。Instagram DMで「PET」と送るだけ。","url":"https://example.com/","serviceType":"AI pet video production","offers":[{"@type":"Offer","name":"SAMPLE / TREND","price":3980,"priceCurrency":"JPY"},{"@type":"Offer","name":"CUSTOM SHORT","price":5980,"priceCurrency":"JPY"},{"@type":"Offer","name":"ORIGINAL MOVIE","price":10000,"priceCurrency":"JPY"},{"@type":"Offer","name":"BUSINESS","price":15000,"priceCurrency":"JPY"}],"sameAs":["https://www.instagram.com/milkune_stories/"]}</script>
 <script>(function(){var q=new URLSearchParams(location.search),l=(q.get("lang")||"").toLowerCase();if(l&&l.indexOf("en")===0){q.delete("lang");var r=q.toString();location.replace("en/"+(r?"?"+r:"")+location.hash);}})();</script>
-<script>window.MILKUNE={"lang":"ja","instagramUrl":"https://www.instagram.com/milkune_stories/","keyword":"PET","sheet":{"title":"Instagram DMで\nご相談ください 🐾","step1":"Instagram で @milkune_stories を開く","step2":"DMで「PET」と送る","body":"作りたい動画のイメージが決まっていなくても大丈夫。お気軽にどうぞ。","open":"Instagramを開く","copy":"「PET」をコピー","copied":"コピーしました ✓","close":"閉じる"}};window.dataLayer=window.dataLayer||[];</script>
+<script>window.MILKUNE={"lang":"ja","instagramUrl":"https://www.instagram.com/milkune_stories/","keyword":"PET","sheet":{"title":"Instagram DMで\nご相談ください 🐾","step1":"Instagram で @milkune_stories を開く","step2":"DMで「PET」と送る","body":"作りたい動画のイメージが決まっていなくても大丈夫。お気軽にどうぞ。","open":"Instagramを開く","copy":"「PET」をコピー","copied":"コピーしました ✓","close":"閉じる"},"orderEndpoint":"","orderForm":{"errors":{"required":"入力してください","choose":"選択してください","instagram":"Instagramユーザーネームを確認してください（例：@username）","whatsapp":"国番号から入力してください（例：+81 90 XXXX XXXX）","url":"URLを確認してください（https:// から始まるURL）","summary":"未入力または確認が必要な項目があります。","network":"送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。うまくいかない場合はInstagram DMでご連絡ください。"},"success":{"title":"ご注文リクエストを受け付けました 🐾","body":["内容を確認後、MILKUNE STORIESより最終料金・納期・必要素材をご連絡します。","この時点ではまだ注文確定・お支払いは発生しません。"],"contactLine":"ご連絡は {method}（{value}）宛にお送りします。"},"sending":"送信中…","submit":"注文リクエストを送る","methods":{"instagram":"Instagram","whatsapp":"WhatsApp"}}};window.dataLayer=window.dataLayer||[];</script>
 
 </head>
 <body class="lang-ja">
@@ -89,7 +89,7 @@
       <p class="hero__body reveal">踊ったり、話したり、料理をしたり、冒険に出たり。<br>あなたのペットが主役の、世界にひとつだけのAI動画を制作します。</p>
       <div class="hero__cta reveal">
         <p class="price-tag"><span>FROM ¥3,980 / $29</span></p>
-        <a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="hero" data-hero-cta>うちの子の動画を作る</a>
+        <div class="cta-pair" data-hero-cta><a class="btn btn--primary" href="#order-form" data-cta="hero_order" data-direct >注文する</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="hero_dm" >まず相談する</a></div>
         <p class="dm-hint">DM “PET” to start 🐾</p>
       </div>
     </div>
@@ -144,7 +144,7 @@
       </li>
     </ul>
     <p class="swipe-hint" aria-hidden="true">← スワイプ →</p>
-    <div class="section__cta reveal"><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="examples" >MAKE ONE WITH MY PET</a></div>
+    <div class="section__cta reveal"><a class="btn btn--primary" href="#order-form" data-cta="examples_order" data-direct >注文する</a></div>
   </section>
 
   <section class="section why" id="why" aria-labelledby="why-title">
@@ -197,7 +197,7 @@
       <p class="solve__title" lang="en">You bring the dream.<br>We handle the AI. ✦</p>
       <p class="solve__lead">あなたは「こんなうちの子が見たい！」と伝えるだけ。</p>
       <p class="solve__body">プロンプト設計、AI生成、試行錯誤、シーン制作、編集までMILKUNEが担当します。</p><p class="solve__body">複数のAIサービスへの課金や失敗生成にかかるクレジット・時間を気にせず、完成した動画をご注文いただけます。</p>
-      <a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="why" >TELL US YOUR IDEA →</a>
+      <a class="btn btn--primary" href="#order-form" data-cta="why_order" data-direct >注文する</a>
     </div>
   </section>
 
@@ -298,7 +298,7 @@
       <p class="pricing__note-en" lang="en">Final pricing may vary depending on length, complexity and production requirements.</p>
       <p>※ 個人向けプラン（SAMPLE / TREND・CUSTOM SHORT・ORIGINAL MOVIE）は商用利用不可です。商用利用をご希望の場合はBUSINESSプランをご利用ください。</p>
     </div>
-    <div class="section__cta reveal"><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="pricing" >相談してみる</a></div>
+    <div class="section__cta reveal"><div class="cta-pair" ><a class="btn btn--primary" href="#order-form" data-cta="pricing_order" data-direct >注文する</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="pricing_dm" >まず相談する</a></div></div>
   </section>
 
   <section class="section order" id="order" aria-labelledby="order-title">
@@ -343,7 +343,130 @@
       <span class="delivery__label" lang="en">DELIVERY</span>
       <span class="delivery__value">最短即日〜5日以内</span>
     </div>
-    <div class="section__cta reveal"><a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="order" >DM “PET” TO START</a></div>
+    <div class="section__cta reveal"><div class="cta-pair" ><a class="btn btn--primary" href="#order-form" data-cta="order_order" data-direct >注文する</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="order_dm" >まず相談する</a></div></div>
+  </section>
+
+  <section class="section order-form" id="order-form" aria-labelledby="order-form-title">
+    <header class="section__head reveal">
+      <p class="eyebrow">ORDER REQUEST</p>
+      <h2 class="section__title" id="order-form-title" lang="en">Order now</h2>
+      <p class="section__sub">注文リクエストフォーム</p>
+    </header>
+    <div class="order-card reveal">
+      <form class="oform" data-order-form novalidate>
+        <p class="oform__lead">作りたい動画の内容を送るだけで、注文リクエストが完了します。<br>写真・動画素材のアップロードは不要です。注文内容を確認後、MILKUNE STORIESから必要素材をご案内します。</p>
+        <p class="oform__summary" data-form-summary role="alert" hidden></p>
+
+        <div class="field" data-field="name">
+          <label class="field__label" for="of-name">お名前 <span class="field__req">必須</span></label>
+          <input class="field__input" id="of-name" name="name" type="text" autocomplete="name" required
+            placeholder="例：山田 花子" aria-describedby="err-name">
+          <p class="field__error" id="err-name" data-error-for="name" hidden></p>
+        </div>
+
+        <fieldset class="field" data-field="contact_method">
+          <legend class="field__label">ご希望の連絡方法 <span class="field__req">必須</span></legend>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="contact_method" value="instagram" required>
+              <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>Instagram</span></label>
+            <label class="choice"><input type="radio" name="contact_method" value="whatsapp">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"/><path d="M9.2 9.3c.3 1.9 1.6 3.4 3.6 4.1l1-1.1 1.8.8c-.2 1.2-1.2 1.8-2.3 1.7-2.9-.4-5-2.6-5.4-5.4-.1-1.1.5-2.1 1.7-2.3l.8 1.8z" fill="currentColor" stroke="none"/></svg>WhatsApp</span></label>
+          </div>
+          <p class="field__error" id="err-contact_method" data-error-for="contact_method" hidden></p>
+        </fieldset>
+
+        <div class="field" data-field="instagram" data-contact-field="instagram" hidden>
+          <label class="field__label" for="of-instagram">Instagramユーザーネーム <span class="field__req">必須</span></label>
+          <input class="field__input" id="of-instagram" name="instagram" type="text" autocomplete="off"
+            autocapitalize="none" spellcheck="false" placeholder="@username"
+            aria-describedby="hint-instagram err-instagram">
+          <p class="field__hint" id="hint-instagram">例：@username</p>
+          <p class="field__error" id="err-instagram" data-error-for="instagram" hidden></p>
+        </div>
+
+        <div class="field" data-field="whatsapp" data-contact-field="whatsapp" hidden>
+          <label class="field__label" for="of-whatsapp">WhatsApp番号 <span class="field__req">必須</span></label>
+          <input class="field__input" id="of-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel"
+            placeholder="+81 90 XXXX XXXX" aria-describedby="hint-whatsapp err-whatsapp">
+          <p class="field__hint" id="hint-whatsapp">国番号から入力してください（例：+81 90 XXXX XXXX）</p>
+          <p class="field__error" id="err-whatsapp" data-error-for="whatsapp" hidden></p>
+        </div>
+
+        <div class="field" data-field="pet">
+          <label class="field__label" for="of-pet">ペットの種類 <span class="field__req">必須</span></label>
+          <input class="field__input" id="of-pet" name="pet" type="text" required
+            placeholder="例：犬（トイプードル）、猫（三毛猫）" aria-describedby="err-pet">
+          <p class="field__error" id="err-pet" data-error-for="pet" hidden></p>
+        </div>
+
+        <fieldset class="field" data-field="plan">
+          <legend class="field__label">希望プラン <span class="field__req">必須</span></legend>
+          <div class="plan-choices">
+            
+            <label class="choice choice--plan"><input type="radio" name="plan" value="sample" required>
+              <span><b lang="en">SAMPLE / TREND</b><small>FROM ¥3,980 / $29</small></span></label>
+            <label class="choice choice--plan"><input type="radio" name="plan" value="custom" required>
+              <span><b lang="en">CUSTOM SHORT</b><small>FROM ¥5,980 / $45</small></span></label>
+            <label class="choice choice--plan"><input type="radio" name="plan" value="original" required>
+              <span><b lang="en">ORIGINAL MOVIE</b><small>FROM ¥10,000 / $69</small></span></label>
+            <label class="choice choice--plan"><input type="radio" name="plan" value="business" required>
+              <span><b lang="en">BUSINESS</b><small>FROM ¥15,000 / $99</small></span></label>
+            <label class="choice choice--plan"><input type="radio" name="plan" value="unsure" required>
+              <span><b >まだ分からない</b></span></label>
+          </div>
+          <p class="field__error" id="err-plan" data-error-for="plan" hidden></p>
+        </fieldset>
+
+        <div class="field" data-field="request">
+          <label class="field__label" for="of-request">作りたい動画・希望内容 <span class="field__req">必須</span></label>
+          <textarea class="field__input field__textarea" id="of-request" name="request" rows="5" required
+            placeholder="例：うちの子が誕生日ケーキの前で踊る、15秒くらいの明るい雰囲気の動画" aria-describedby="err-request"></textarea>
+          <p class="field__error" id="err-request" data-error-for="request" hidden></p>
+        </div>
+
+        <div class="field" data-field="reference_url">
+          <label class="field__label" for="of-ref">参考動画URL <span class="field__opt">任意</span></label>
+          <input class="field__input" id="of-ref" name="reference_url" type="url" inputmode="url" autocapitalize="none"
+            spellcheck="false" placeholder="https://" aria-describedby="err-reference_url">
+          <p class="field__error" id="err-reference_url" data-error-for="reference_url" hidden></p>
+        </div>
+
+        <fieldset class="field" data-field="commercial">
+          <legend class="field__label">商用利用の有無 <span class="field__req">必須</span></legend>
+          <div class="choice-col">
+            <label class="choice"><input type="radio" name="commercial" value="no" required><span>なし（個人利用）</span></label>
+            <label class="choice"><input type="radio" name="commercial" value="yes"><span>あり（店舗・ブランド・SNS・広告など）</span></label>
+          </div>
+          <p class="field__note" data-business-hint hidden>商用利用の場合は、BUSINESSプランでのご案内となります。</p>
+          <p class="field__error" id="err-commercial" data-error-for="commercial" hidden></p>
+        </fieldset>
+
+        <!-- spam trap: humans never see or fill this -->
+        <div class="oform__trap" aria-hidden="true">
+          <label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div class="oform__notice">
+          <p>※ フォーム送信だけでは注文・料金は確定しません。内容確認後、MILKUNE STORIESから最終料金・納期・必要素材をご案内し、お客様の了承・お支払い後に制作開始となります。</p>
+          <p>※ ご連絡は、お客様が選択した連絡方法（Instagram または WhatsApp）でお送りします。</p>
+        </div>
+
+        <button class="btn btn--primary btn--block oform__submit" type="submit" data-order-submit>注文リクエストを送る</button>
+      </form>
+
+      <div class="oform__done" data-order-done tabindex="-1" hidden>
+        <span class="sheet__paw"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><ellipse cx="12" cy="16" rx="5" ry="4.2"/><ellipse cx="5.5" cy="10.5" rx="2.1" ry="2.7"/><ellipse cx="9.5" cy="6.5" rx="2.1" ry="2.8"/><ellipse cx="14.5" cy="6.5" rx="2.1" ry="2.8"/><ellipse cx="18.5" cy="10.5" rx="2.1" ry="2.7"/></svg></span>
+        <h3 class="oform__done-title">ご注文リクエストを受け付けました 🐾</h3>
+        <p>内容を確認後、MILKUNE STORIESより最終料金・納期・必要素材をご連絡します。</p><p>この時点ではまだ注文確定・お支払いは発生しません。</p>
+        <p class="oform__done-contact" data-order-contact></p>
+        <p class="oform__preview">プレビュー：送信先が未設定のため、この内容は実際には送信されていません。</p>
+      </div>
+
+      <div class="oform__consult">
+        <p>まずは相談してから決めたい方はこちら</p>
+        <a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="order_form_dm" >まず相談する</a>
+      </div>
+    </div>
   </section>
 
   <section class="section brand" id="story" aria-labelledby="story-title">
@@ -426,7 +549,7 @@
       <p class="final__body reveal">踊ってほしい？<br>料理してほしい？<br>それとも、一度だけでも話してほしい？</p><p class="final__body reveal">あなたが見てみたい“うちの子”を教えてください。</p>
       <p class="final__en reveal" lang="en">Maybe they dance. Maybe they cook.<br>Maybe they finally tell you how much they love you.<br>What would you love to see them do?</p>
       <p class="price-tag reveal"><span>FROM ¥3,980 / $29</span></p>
-      <div class="reveal"><a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="final" data-final-cta>💌 DM “PET” TO START</a></div>
+      <div class="reveal"><div class="cta-pair" data-final-cta><a class="btn btn--primary" href="#order-form" data-cta="final_order" data-direct >注文する</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="final_dm" >まず相談する</a></div></div>
     </div>
   </section>
 </main>
@@ -441,7 +564,7 @@
   </footer>
 
   <div class="sticky-cta" data-sticky-cta hidden>
-    <a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="sticky" >🐾 うちの子の動画を作る</a>
+    <div class="sticky-cta__row"><a class="btn btn--primary" href="#order-form" data-cta="sticky_order" data-direct >注文する</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="sticky_dm" >まず相談する</a></div>
   </div>
 
   <div class="sheet" data-sheet hidden>

@@ -135,11 +135,12 @@
   }
 
   // ------------------------------------------------------------
-  // Sticky mobile CTA: hidden while the hero or final CTA is visible
+  // Sticky mobile CTA: hidden while the hero, the order form or the final CTA is visible
   // ------------------------------------------------------------
   var sticky = document.querySelector("[data-sticky-cta]");
   var hero = document.querySelector(".hero");
   var finalSec = document.querySelector(".final");
+  var formSec = document.querySelector("#order-form");
   if (sticky && "IntersectionObserver" in window) {
     sticky.hidden = false;
     sticky.classList.add("is-hidden");
@@ -152,6 +153,7 @@
     }, { threshold: 0.05 });
     if (hero) so.observe(hero);
     if (finalSec) so.observe(finalSec);
+    if (formSec) so.observe(formSec);
   } else if (sticky) {
     sticky.hidden = false;
   }
@@ -217,6 +219,165 @@
     });
   } else {
     document.querySelectorAll(".video-card video").forEach(load);
+  }
+
+
+  // ------------------------------------------------------------
+  // Order request form (no payment). Validates, then POSTs the fields to
+  // M.orderEndpoint (Formspree / Google Apps Script / any form backend).
+  // With no endpoint configured it runs in preview mode: nothing is sent.
+  // ------------------------------------------------------------
+  var form = document.querySelector("[data-order-form]");
+  if (form) {
+    var OF = M.orderForm || {};
+    var E = OF.errors || {};
+    var done = document.querySelector("[data-order-done]");
+    var summary = form.querySelector("[data-form-summary]");
+    var submitBtn = form.querySelector("[data-order-submit]");
+    var bizHint = form.querySelector("[data-business-hint]");
+    var started = false;
+
+    var val = function (name) {
+      var el = form.elements[name];
+      if (!el) return "";
+      if (el instanceof RadioNodeList || (el.length && !el.tagName)) return el.value || "";
+      return (el.value || "").trim();
+    };
+    var method = function () { return val("contact_method"); };
+
+    function showContactField() {
+      var m = method();
+      form.querySelectorAll("[data-contact-field]").forEach(function (box) {
+        var on = box.getAttribute("data-contact-field") === m;
+        box.hidden = !on;
+        var input = box.querySelector("input");
+        input.required = on;
+        if (!on) setError(box.getAttribute("data-field"), "");
+      });
+    }
+    function showBusinessHint() {
+      bizHint.hidden = !(val("commercial") === "yes" && val("plan") && val("plan") !== "business");
+    }
+
+    function setError(name, msg) {
+      var box = form.querySelector('[data-field="' + name + '"]');
+      var p = form.querySelector('[data-error-for="' + name + '"]');
+      if (!box || !p) return;
+      p.textContent = msg || "";
+      p.hidden = !msg;
+      box.classList.toggle("is-invalid", !!msg);
+      box.querySelectorAll("input, textarea").forEach(function (el) {
+        if (msg) el.setAttribute("aria-invalid", "true"); else el.removeAttribute("aria-invalid");
+      });
+    }
+
+    var IG_RE = /^@?(?!.*\.\.)(?!\.)[A-Za-z0-9._]{1,30}$/;
+    var WA_RE = /^\+[1-9][0-9 ()\-]{6,20}$/;
+    function checkField(name) {
+      var v = val(name), m = method();
+      var msg = "";
+      switch (name) {
+        case "name": case "pet": case "request": msg = v ? "" : E.required; break;
+        case "contact_method": case "plan": case "commercial": msg = v ? "" : E.choose; break;
+        case "instagram": if (m === "instagram") msg = !v ? E.required : IG_RE.test(v) ? "" : E.instagram; break;
+        case "whatsapp":
+          if (m === "whatsapp") msg = !v ? E.required : WA_RE.test(v) && v.replace(/\D/g, "").length >= 8 ? "" : E.whatsapp;
+          break;
+        case "reference_url": msg = !v || /^https?:\/\/\S+\.\S+/i.test(v) ? "" : E.url; break;
+      }
+      setError(name, msg);
+      return !msg;
+    }
+    var ORDER = ["name", "contact_method", "instagram", "whatsapp", "pet", "plan", "request", "reference_url", "commercial"];
+
+    form.addEventListener("change", function (e) {
+      if (e.target.name === "contact_method") { showContactField(); checkField("contact_method"); }
+      if (e.target.name === "plan" || e.target.name === "commercial") { showBusinessHint(); checkField(e.target.name); }
+    });
+    // Clear/refresh a flagged field's error while the user types. (Done on input,
+    // not on blur, so the layout never shifts under a tap on the submit button.)
+    form.addEventListener("input", function (e) {
+      var box = e.target.closest && e.target.closest("[data-field]");
+      if (box && box.classList.contains("is-invalid")) checkField(box.getAttribute("data-field"));
+    });
+    form.addEventListener("focusin", function () {
+      if (!started) { started = true; track("order_form_start"); }
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      summary.hidden = true;
+      var firstBad = null;
+      ORDER.forEach(function (n) { if (!checkField(n) && !firstBad) firstBad = n; });
+      if (firstBad) {
+        summary.textContent = E.summary;
+        summary.hidden = false;
+        var target = form.querySelector('[data-field="' + firstBad + '"] input, [data-field="' + firstBad + '"] textarea');
+        if (target) target.focus();
+        track("order_form_invalid", { field: firstBad });
+        return;
+      }
+
+      var m = method();
+      var contactValue = m === "instagram" ? "@" + val("instagram").replace(/^@/, "") : val("whatsapp");
+      var data = new FormData();
+      data.append("name", val("name"));
+      data.append("contact_method", m);
+      data.append("contact", contactValue);
+      data.append("instagram", m === "instagram" ? contactValue : "");
+      data.append("whatsapp", m === "whatsapp" ? contactValue : "");
+      data.append("pet", val("pet"));
+      data.append("plan", val("plan"));
+      data.append("request", val("request"));
+      data.append("reference_url", val("reference_url"));
+      data.append("commercial_use", val("commercial"));
+      data.append("lang", M.lang);
+      data.append("page", location.href);
+      data.append("submitted_at", new Date().toISOString());
+      data.append("_subject", "MILKUNE STORIES order request: " + val("name") + " (" + val("plan") + ")");
+      data.append("_gotcha", val("_gotcha"));
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = OF.sending;
+
+      function success() {
+        track("order_form_success", { plan: val("plan"), contact_method: m, preview: !M.orderEndpoint });
+        var line = (OF.success.contactLine || "")
+          .replace("{method}", (OF.methods || {})[m] || m)
+          .replace("{value}", contactValue);
+        done.querySelector("[data-order-contact]").textContent = line;
+        form.hidden = true;
+        done.hidden = false;
+        done.focus();
+        done.scrollIntoView({ block: "center", behavior: reduceMotion ? "auto" : "smooth" });
+      }
+      function failure(err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = OF.submit;
+        summary.textContent = E.network;
+        summary.hidden = false;
+        track("order_form_error", { message: String(err && err.message || err) });
+      }
+
+      // Spam trap filled → pretend success, send nothing
+      if (val("_gotcha")) return success();
+
+      if (!M.orderEndpoint) {
+        // Preview mode: nothing is delivered (see config.order.endpoint)
+        if (window.console) console.info("[MILKUNE] order form preview — not sent:", Object.fromEntries(data));
+        return setTimeout(success, 400);
+      }
+
+      var appsScript = /script\.google(usercontent)?\.com/.test(M.orderEndpoint);
+      fetch(M.orderEndpoint, appsScript
+        ? { method: "POST", mode: "no-cors", body: new URLSearchParams(data) } // Apps Script: opaque response
+        : { method: "POST", body: data, headers: { Accept: "application/json" } })
+        .then(function (res) {
+          if (appsScript || res.ok) return success();
+          throw new Error("HTTP " + res.status);
+        })
+        .catch(failure);
+    });
   }
 
   // FAQ open tracking

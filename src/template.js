@@ -11,10 +11,16 @@ const t = (str = "") => esc(str).replace(/\n/g, "<br>").replace(/\*(.+?)\*/g, "<
 
 const ig = config.instagram;
 
-// Every CTA is a real link to Instagram DM (works without JS);
-// main.js intercepts it to show the guide sheet and track the click.
-const cta = (label, id, variant = "primary", extra = "") =>
-  `<a class="btn btn--${variant}" href="${esc(ig.url)}" target="_blank" rel="noopener" data-cta="${id}" ${extra}>${t(label)}</a>`;
+// Two kinds of CTA across the page:
+//  - Primary  "ORDER NOW / 注文する": jumps to the order request form (#order-form)
+//  - Secondary "DM US / まず相談する": real link to Instagram (works without JS);
+//    main.js intercepts it to show the DM "PET" guide sheet.
+// Every click is tracked as cta_click with id "<place>_order" / "<place>_dm".
+const orderCta = (c, id, variant = "primary", extra = "") =>
+  `<a class="btn btn--${variant}" href="#order-form" data-cta="${id}_order" data-direct ${extra}>${t(c.ctas.order)}</a>`;
+const dmCta = (c, id, variant = "secondary", extra = "") =>
+  `<a class="btn btn--${variant}" href="${esc(ig.url)}" target="_blank" rel="noopener" data-cta="${id}_dm" ${extra}>${t(c.ctas.dm)}</a>`;
+const ctaPair = (c, id, extra = "") => `<div class="cta-pair" ${extra}>${orderCta(c, id)}${dmCta(c, id)}</div>`;
 
 const sectionHead = ({ eyebrow, titleEn, title }, lang, id) => {
   // English display heading + a sub-heading in the page language.
@@ -39,6 +45,14 @@ export function renderPage(c) {
     instagramUrl: ig.url,
     keyword: ig.dmKeyword,
     sheet: c.sheet,
+    orderEndpoint: config.order.endpoint,
+    orderForm: {
+      errors: c.orderForm.errors,
+      success: c.orderForm.success,
+      sending: c.orderForm.sending,
+      submit: c.orderForm.submit,
+      methods: { instagram: c.orderForm.fields.contactMethod.instagram, whatsapp: c.orderForm.fields.contactMethod.whatsapp },
+    },
   };
 
   // ---------- Sections ----------
@@ -75,7 +89,7 @@ export function renderPage(c) {
       <p class="hero__body reveal">${t(c.hero.body)}</p>
       <div class="hero__cta reveal">
         <p class="price-tag"><span>${t(c.hero.price)}</span></p>
-        ${cta(c.hero.cta, "hero", "primary", 'data-hero-cta')}
+        ${ctaPair(c, "hero", "data-hero-cta")}
         <p class="dm-hint">${t(c.dmHint)}</p>
       </div>
     </div>
@@ -113,7 +127,7 @@ export function renderPage(c) {
       ${config.videos.map(videoCard).join("")}
     </ul>
     <p class="swipe-hint" aria-hidden="true">${esc(c.examples.swipeHint)}</p>
-    <div class="section__cta reveal">${cta(c.examples.cta, "examples", "secondary")}</div>
+    <div class="section__cta reveal">${orderCta(c, "examples")}</div>
   </section>`;
 
   const why = `
@@ -139,7 +153,7 @@ export function renderPage(c) {
       <p class="solve__title" lang="en">${t(c.why.solveTitle)}</p>
       <p class="solve__lead">${t(c.why.solveLead)}</p>
       ${c.why.solveBody.map((p) => `<p class="solve__body">${t(p)}</p>`).join("")}
-      ${cta(c.why.cta, "why", "primary")}
+      ${orderCta(c, "why")}
     </div>
   </section>`;
 
@@ -187,7 +201,7 @@ export function renderPage(c) {
       ${c.pricing.noteSub ? `<p class="pricing__note-en" lang="en">${t(c.pricing.noteSub)}</p>` : ""}
       <p>※ ${t(c.pricing.commercial)}</p>
     </div>
-    <div class="section__cta reveal">${cta(c.pricing.cta, "pricing", "secondary")}</div>
+    <div class="section__cta reveal">${ctaPair(c, "pricing")}</div>
   </section>`;
 
   const order = `
@@ -209,7 +223,133 @@ export function renderPage(c) {
       <span class="delivery__label" lang="en">${esc(c.order.deliveryLabel)}</span>
       <span class="delivery__value">${t(c.order.delivery)}</span>
     </div>
-    <div class="section__cta reveal">${cta(c.order.cta, "order", "primary")}</div>
+    <div class="section__cta reveal">${ctaPair(c, "order")}</div>
+  </section>`;
+
+  // ---------- Order request form ----------
+  const f = c.orderForm;
+  const F = f.fields;
+  const req = `<span class="field__req">${esc(f.required)}</span>`;
+  const opt = `<span class="field__opt">${esc(f.optional)}</span>`;
+  const err = (name) => `<p class="field__error" id="err-${name}" data-error-for="${name}" hidden></p>`;
+  const planOptions = [
+    ...config.plans.map((p) => ({ value: p.id, label: p.name, price: `${fmtJpy(p.jpy)} / ${fmtUsd(p.usd)}` })),
+    { value: "unsure", label: F.plan.unsure, price: "" },
+  ];
+  const orderForm = `
+  <section class="section order-form" id="order-form" aria-labelledby="order-form-title">
+    ${sectionHead(f, c.lang, "order-form")}
+    <div class="order-card reveal">
+      <form class="oform" data-order-form novalidate>
+        <p class="oform__lead">${t(f.lead)}</p>
+        <p class="oform__summary" data-form-summary role="alert" hidden></p>
+
+        <div class="field" data-field="name">
+          <label class="field__label" for="of-name">${esc(F.name.label)} ${req}</label>
+          <input class="field__input" id="of-name" name="name" type="text" autocomplete="name" required
+            placeholder="${esc(F.name.placeholder)}" aria-describedby="err-name">
+          ${err("name")}
+        </div>
+
+        <fieldset class="field" data-field="contact_method">
+          <legend class="field__label">${esc(F.contactMethod.label)} ${req}</legend>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="contact_method" value="instagram" required>
+              <span>${icons.instagram}${esc(F.contactMethod.instagram)}</span></label>
+            <label class="choice"><input type="radio" name="contact_method" value="whatsapp">
+              <span>${icons.chat}${esc(F.contactMethod.whatsapp)}</span></label>
+          </div>
+          ${err("contact_method")}
+        </fieldset>
+
+        <div class="field" data-field="instagram" data-contact-field="instagram" hidden>
+          <label class="field__label" for="of-instagram">${esc(F.instagram.label)} ${req}</label>
+          <input class="field__input" id="of-instagram" name="instagram" type="text" autocomplete="off"
+            autocapitalize="none" spellcheck="false" placeholder="${esc(F.instagram.placeholder)}"
+            aria-describedby="hint-instagram err-instagram">
+          <p class="field__hint" id="hint-instagram">${esc(F.instagram.hint)}</p>
+          ${err("instagram")}
+        </div>
+
+        <div class="field" data-field="whatsapp" data-contact-field="whatsapp" hidden>
+          <label class="field__label" for="of-whatsapp">${esc(F.whatsapp.label)} ${req}</label>
+          <input class="field__input" id="of-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel"
+            placeholder="${esc(F.whatsapp.placeholder)}" aria-describedby="hint-whatsapp err-whatsapp">
+          <p class="field__hint" id="hint-whatsapp">${esc(F.whatsapp.hint)}</p>
+          ${err("whatsapp")}
+        </div>
+
+        <div class="field" data-field="pet">
+          <label class="field__label" for="of-pet">${esc(F.pet.label)} ${req}</label>
+          <input class="field__input" id="of-pet" name="pet" type="text" required
+            placeholder="${esc(F.pet.placeholder)}" aria-describedby="err-pet">
+          ${err("pet")}
+        </div>
+
+        <fieldset class="field" data-field="plan">
+          <legend class="field__label">${esc(F.plan.label)} ${req}</legend>
+          <div class="plan-choices">
+            ${planOptions
+              .map(
+                (o) => `
+            <label class="choice choice--plan"><input type="radio" name="plan" value="${o.value}" required>
+              <span><b ${o.value === "unsure" ? "" : 'lang="en"'}>${esc(o.label)}</b>${o.price ? `<small>FROM ${esc(o.price)}</small>` : ""}</span></label>`
+              )
+              .join("")}
+          </div>
+          ${err("plan")}
+        </fieldset>
+
+        <div class="field" data-field="request">
+          <label class="field__label" for="of-request">${esc(F.request.label)} ${req}</label>
+          <textarea class="field__input field__textarea" id="of-request" name="request" rows="5" required
+            placeholder="${esc(F.request.placeholder)}" aria-describedby="err-request"></textarea>
+          ${err("request")}
+        </div>
+
+        <div class="field" data-field="reference_url">
+          <label class="field__label" for="of-ref">${esc(F.referenceUrl.label)} ${opt}</label>
+          <input class="field__input" id="of-ref" name="reference_url" type="url" inputmode="url" autocapitalize="none"
+            spellcheck="false" placeholder="${esc(F.referenceUrl.placeholder)}" aria-describedby="err-reference_url">
+          ${err("reference_url")}
+        </div>
+
+        <fieldset class="field" data-field="commercial">
+          <legend class="field__label">${esc(F.commercial.label)} ${req}</legend>
+          <div class="choice-col">
+            <label class="choice"><input type="radio" name="commercial" value="no" required><span>${esc(F.commercial.no)}</span></label>
+            <label class="choice"><input type="radio" name="commercial" value="yes"><span>${esc(F.commercial.yes)}</span></label>
+          </div>
+          <p class="field__note" data-business-hint hidden>${esc(F.commercial.businessHint)}</p>
+          ${err("commercial")}
+        </fieldset>
+
+        <!-- spam trap: humans never see or fill this -->
+        <div class="oform__trap" aria-hidden="true">
+          <label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div class="oform__notice">
+          <p>※ ${t(f.notice)}</p>
+          <p>※ ${t(f.contactNotice)}</p>
+        </div>
+
+        <button class="btn btn--primary btn--block oform__submit" type="submit" data-order-submit>${t(f.submit)}</button>
+      </form>
+
+      <div class="oform__done" data-order-done tabindex="-1" hidden>
+        <span class="sheet__paw">${icons.paw}</span>
+        <h3 class="oform__done-title">${t(f.success.title)}</h3>
+        ${f.success.body.map((p) => `<p>${t(p)}</p>`).join("")}
+        <p class="oform__done-contact" data-order-contact></p>
+        ${config.order.endpoint ? "" : `<p class="oform__preview">${t(f.previewNote)}</p>`}
+      </div>
+
+      <div class="oform__consult">
+        <p>${t(f.consult)}</p>
+        ${dmCta(c, "order_form")}
+      </div>
+    </div>
   </section>`;
 
   const brand = `
@@ -251,7 +391,7 @@ export function renderPage(c) {
       ${c.final.body.map((p) => `<p class="final__body reveal">${t(p)}</p>`).join("")}
       ${c.final.bodyEn ? `<p class="final__en reveal" lang="en">${t(c.final.bodyEn)}</p>` : ""}
       <p class="price-tag reveal"><span>${t(c.final.price)}</span></p>
-      <div class="reveal">${cta(c.final.cta, "final", "primary", "data-final-cta")}</div>
+      <div class="reveal">${ctaPair(c, "final", "data-final-cta")}</div>
     </div>
   </section>`;
 
@@ -267,7 +407,7 @@ export function renderPage(c) {
 
   const sticky = `
   <div class="sticky-cta" data-sticky-cta hidden>
-    ${cta(c.stickyCta, "sticky", "primary")}
+    <div class="sticky-cta__row">${orderCta(c, "sticky")}${dmCta(c, "sticky")}</div>
   </div>`;
 
   const sheet = `
@@ -349,6 +489,7 @@ ${why}
 ${whatif}
 ${pricing}
 ${order}
+${orderForm}
 ${brand}
 ${faq}
 ${final}

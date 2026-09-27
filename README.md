@@ -14,6 +14,7 @@
 | 変えたいもの | ファイル |
 | --- | --- |
 | InstagramのURL（全CTAのリンク先）・DMキーワード（`PET`） | `src/config.js` → `instagram.url` / `dmKeyword` |
+| 注文フォームの送信先 | `src/config.js` → `order.endpoint` **※公開前に必ず設定**（下記） |
 | 料金（全セクション共通で反映） | `src/config.js` → `plans` |
 | サンプル動画・ポスター画像 | `src/config.js` → `videos`（`src` が空ならプレースホルダー表示） |
 | ロゴ画像 | `src/config.js` → `logo`（空ならテキストロゴ） |
@@ -40,9 +41,32 @@ npm run dev       # ビルドして http://localhost:4173 でプレビュー
 
 ## CTAの動き
 
-すべての注文・問い合わせCTAは `config.instagram.url`（Instagramアカウント）へのリンクです。URLを変えると全CTAとフッター・表示される @ユーザー名 がまとめて変わります。
-JSが有効な場合は、タップ時に「DMで“PET”と送ってください」の案内シートを表示し、
-そこから Instagram を開く／「PET」をコピーできます（JSなしでも直接Instagramへ遷移）。
+主要CTAは2種類です。
+
+| 種類 | 表示（JP / EN） | 動作 |
+| --- | --- | --- |
+| Primary | 注文する / ORDER NOW | ページ内の注文リクエストフォーム（`#order-form`）へ移動 |
+| Secondary | まず相談する / DM US | `config.instagram.url` へのリンク。タップ時に「DMで“PET”と送る」案内シートを表示 |
+
+InstagramのURLを変えると、全CTA・フッター・表示される @ユーザー名 がまとめて変わります。
+注文フォームへの直リンク（Instagramのプロフィール等に使えます）：`https://<公開URL>/#order-form`（英語版は `/en/#order-form`）
+
+## 注文リクエストフォーム
+
+決済は行わず、注文リクエストのみ受け付けます。素材のアップロード欄はありません。
+
+- 入力項目：お名前／ご希望の連絡方法（Instagram または WhatsApp）＋選んだ方の連絡先（必須）／ペットの種類／希望プラン（4プラン＋まだ分からない）／作りたい動画・希望内容／参考動画URL（任意）／商用利用の有無
+- 送信データ（項目名）：`name` `contact_method` `contact` `instagram` `whatsapp` `pet` `plan` `request` `reference_url` `commercial_use` `lang` `page` `submitted_at`
+- 文言は `src/content.js` の `orderForm`（JP / EN）
+
+### 送信先の設定（公開前に必須）
+
+`src/config.js` の `order.endpoint` にフォームの受け取り先URLを入れて `npm run build` してください。
+**空のままだとプレビューモード**になり、完了画面に「実際には送信されていません」と表示され、内容はどこにも届きません。
+
+- **Formspree**（一番かんたん）：formspree.io でフォームを作成 → `https://formspree.io/f/xxxxxxx` を設定。届いた内容はメールと管理画面で確認できます。
+- **Google スプレッドシート**：スプレッドシートの「拡張機能 → Apps Script」で `doPost(e)` を作成し、ウェブアプリとして公開 → `https://script.google.com/macros/s/xxxx/exec` を設定。
+- そのほか、フォーム項目をPOSTで受け取れるサービスならそのまま使えます。
 
 ## 計測（クリックトラッキング）
 
@@ -50,7 +74,9 @@ CTAクリック等は常に `window.dataLayer` に push されます（GTM / GA4
 
 | event | タイミング |
 | --- | --- |
-| `cta_click` | いずれかのCTAをタップ（`cta`: hero / examples / why / pricing / order / final / sticky / footer_instagram） |
+| `cta_click` | いずれかのCTAをタップ（`cta`: `<場所>_order` / `<場所>_dm`。場所 = hero / examples / why / pricing / order / order_form / final / sticky、ほか footer_instagram） |
+| `order_form_start` / `order_form_invalid` | フォーム入力開始 / 入力エラーで送信できなかった |
+| `order_form_success` / `order_form_error` | 注文リクエスト送信完了 / 送信失敗 |
 | `cta_sheet_open` | 案内シート表示 |
 | `cta_instagram_open` | シートから Instagram を開いた |
 | `cta_copy_keyword` | 「PET」をコピー |

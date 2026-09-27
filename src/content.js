@@ -36,7 +36,6 @@ export const content = {
       sub: "うちの子の「こんな姿を見てみたい」を、動画に。",
       body: "踊ったり、話したり、料理をしたり、冒険に出たり。\nあなたのペットが主役の、世界にひとつだけのAI動画を制作します。",
       price: fromPrice("sample"),
-      cta: "うちの子の動画を作る",
     },
 
     examples: {
@@ -49,7 +48,6 @@ export const content = {
       },
       placeholder: "サンプル動画 準備中",
       swipeHint: "← スワイプ →",
-      cta: "MAKE ONE WITH MY PET",
       playLabel: "動画を再生",
       pauseLabel: "動画を一時停止",
     },
@@ -73,7 +71,6 @@ export const content = {
         "プロンプト設計、AI生成、試行錯誤、シーン制作、編集までMILKUNEが担当します。",
         "複数のAIサービスへの課金や失敗生成にかかるクレジット・時間を気にせず、完成した動画をご注文いただけます。",
       ],
-      cta: "TELL US YOUR IDEA →",
     },
 
     whatif: {
@@ -108,7 +105,6 @@ export const content = {
       noteSub: "Final pricing may vary depending on length, complexity and production requirements.",
       commercial:
         "個人向けプラン（SAMPLE / TREND・CUSTOM SHORT・ORIGINAL MOVIE）は商用利用不可です。商用利用をご希望の場合はBUSINESSプランをご利用ください。",
-      cta: "相談してみる",
     },
 
     order: {
@@ -128,7 +124,6 @@ export const content = {
         "必要な写真・動画などの素材は、制作内容によって異なります。\n希望内容を確認後、MILKUNEから必要素材をご案内します。",
       deliveryLabel: "DELIVERY",
       delivery: "最短即日〜5日以内",
-      cta: `DM “${kw}” TO START`,
     },
 
     brand: {
@@ -185,10 +180,73 @@ export const content = {
       bodyEn:
         "Maybe they dance. Maybe they cook.\nMaybe they finally tell you how much they love you.\nWhat would you love to see them do?",
       price: fromPrice("sample"),
-      cta: `💌 DM “${kw}” TO START`,
     },
 
-    stickyCta: "🐾 うちの子の動画を作る",
+    // Main CTAs used across the page
+    ctas: {
+      order: "注文する", // Primary → opens the order request form
+      dm: "まず相談する", // Secondary → Instagram DM ("PET")
+    },
+
+    // Order request form (no payment is taken here)
+    orderForm: {
+      eyebrow: "ORDER REQUEST",
+      titleEn: "Order now",
+      title: "注文リクエストフォーム",
+      lead:
+        "作りたい動画の内容を送るだけで、注文リクエストが完了します。\n写真・動画素材のアップロードは不要です。注文内容を確認後、MILKUNE STORIESから必要素材をご案内します。",
+      required: "必須",
+      optional: "任意",
+      fields: {
+        name: { label: "お名前", placeholder: "例：山田 花子" },
+        contactMethod: { label: "ご希望の連絡方法", instagram: "Instagram", whatsapp: "WhatsApp" },
+        instagram: { label: "Instagramユーザーネーム", placeholder: "@username", hint: "例：@username" },
+        whatsapp: {
+          label: "WhatsApp番号",
+          placeholder: "+81 90 XXXX XXXX",
+          hint: "国番号から入力してください（例：+81 90 XXXX XXXX）",
+        },
+        pet: { label: "ペットの種類", placeholder: "例：犬（トイプードル）、猫（三毛猫）" },
+        plan: { label: "希望プラン", unsure: "まだ分からない" },
+        request: {
+          label: "作りたい動画・希望内容",
+          placeholder: "例：うちの子が誕生日ケーキの前で踊る、15秒くらいの明るい雰囲気の動画",
+        },
+        referenceUrl: { label: "参考動画URL", placeholder: "https://" },
+        commercial: {
+          label: "商用利用の有無",
+          no: "なし（個人利用）",
+          yes: "あり（店舗・ブランド・SNS・広告など）",
+          businessHint: "商用利用の場合は、BUSINESSプランでのご案内となります。",
+        },
+      },
+      errors: {
+        required: "入力してください",
+        choose: "選択してください",
+        instagram: "Instagramユーザーネームを確認してください（例：@username）",
+        whatsapp: "国番号から入力してください（例：+81 90 XXXX XXXX）",
+        url: "URLを確認してください（https:// から始まるURL）",
+        summary: "未入力または確認が必要な項目があります。",
+        network:
+          "送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。うまくいかない場合はInstagram DMでご連絡ください。",
+      },
+      notice:
+        "フォーム送信だけでは注文・料金は確定しません。内容確認後、MILKUNE STORIESから最終料金・納期・必要素材をご案内し、お客様の了承・お支払い後に制作開始となります。",
+      contactNotice: "ご連絡は、お客様が選択した連絡方法（Instagram または WhatsApp）でお送りします。",
+      submit: "注文リクエストを送る",
+      sending: "送信中…",
+      consult: "まずは相談してから決めたい方はこちら",
+      success: {
+        title: "ご注文リクエストを受け付けました 🐾",
+        body: [
+          "内容を確認後、MILKUNE STORIESより最終料金・納期・必要素材をご連絡します。",
+          "この時点ではまだ注文確定・お支払いは発生しません。",
+        ],
+        // {method} and {value} are filled in with what the customer entered
+        contactLine: "ご連絡は {method}（{value}）宛にお送りします。",
+      },
+      previewNote: "プレビュー：送信先が未設定のため、この内容は実際には送信されていません。",
+    },
 
     // CTA sheet (shown when any CTA is tapped)
     sheet: {
@@ -226,7 +284,6 @@ export const content = {
       body:
         "Dance. Talk. Cook. Go on adventures.\nOr become the star of their own movie.\nWe create one-of-a-kind AI videos starring your pet.",
       price: fromPrice("sample"),
-      cta: "CREATE MY PET MOVIE",
     },
 
     examples: {
@@ -239,7 +296,6 @@ export const content = {
       },
       placeholder: "Sample video coming soon",
       swipeHint: "← swipe →",
-      cta: "MAKE ONE WITH MY PET",
       playLabel: "Play video",
       pauseLabel: "Pause video",
     },
@@ -263,7 +319,6 @@ export const content = {
         "Prompt design, AI generation, all the trial and error, scene creation and editing — MILKUNE handles every step for you.",
         "No juggling multiple AI subscriptions, and no worrying about the credits or time lost on failed generations. You simply order the finished video.",
       ],
-      cta: "TELL US YOUR IDEA →",
     },
 
     whatif: {
@@ -298,7 +353,6 @@ export const content = {
       noteSub: "",
       commercial:
         "Personal plans (SAMPLE / TREND, CUSTOM SHORT, ORIGINAL MOVIE) may not be used commercially. If you’d like to use a video commercially, please choose the BUSINESS plan.",
-      cta: "ASK ABOUT A PLAN",
     },
 
     order: {
@@ -318,7 +372,6 @@ export const content = {
         "The photos and videos we need depend on what you’d like to create.\nOnce we’ve heard your idea, we’ll let you know exactly what to send.",
       deliveryLabel: "DELIVERY",
       delivery: "As fast as same day, within 5 days",
-      cta: `DM “${kw}” TO START`,
     },
 
     brand: {
@@ -377,10 +430,70 @@ export const content = {
         "What would you love to see them do?\nTell us — we’re all ears.",
       ],
       price: fromPrice("sample"),
-      cta: `💌 DM “${kw}” TO START`,
     },
 
-    stickyCta: "🐾 Create My Pet Movie",
+    ctas: {
+      order: "ORDER NOW",
+      dm: "DM US",
+    },
+
+    orderForm: {
+      eyebrow: "ORDER REQUEST",
+      titleEn: "Order now",
+      title: "Send us your order request",
+      lead:
+        "Just tell us about the video you’d like and your order request is done.\nNo need to upload photos or videos now — once we’ve reviewed your request, MILKUNE STORIES will let you know which materials we need.",
+      required: "Required",
+      optional: "Optional",
+      fields: {
+        name: { label: "Your name", placeholder: "e.g. Emma Smith" },
+        contactMethod: { label: "Preferred contact method", instagram: "Instagram", whatsapp: "WhatsApp" },
+        instagram: { label: "Instagram username", placeholder: "@username", hint: "e.g. @username" },
+        whatsapp: {
+          label: "WhatsApp number",
+          placeholder: "+1 555 123 4567",
+          hint: "Please include your country code (e.g. +81 90 XXXX XXXX)",
+        },
+        pet: { label: "Type of pet", placeholder: "e.g. Dog (Toy Poodle), Cat (Calico)" },
+        plan: { label: "Plan you’re interested in", unsure: "Not sure yet" },
+        request: {
+          label: "What would you like us to create?",
+          placeholder: "e.g. A fun, upbeat ~15-second video of my dog dancing in front of a birthday cake",
+        },
+        referenceUrl: { label: "Reference video URL", placeholder: "https://" },
+        commercial: {
+          label: "Commercial use",
+          no: "No — personal use only",
+          yes: "Yes — for a shop, brand, social media, ads, etc.",
+          businessHint: "Commercial use is covered by the BUSINESS plan, so we’ll quote you on that plan.",
+        },
+      },
+      errors: {
+        required: "Please fill this in",
+        choose: "Please choose one",
+        instagram: "Please check your Instagram username (e.g. @username)",
+        whatsapp: "Please include your country code (e.g. +81 90 XXXX XXXX)",
+        url: "Please check the URL (it should start with https://)",
+        summary: "Some fields are missing or need a quick check.",
+        network:
+          "We couldn’t send your request. Please check your connection and try again — or reach us by Instagram DM if it still doesn’t work.",
+      },
+      notice:
+        "Submitting this form does not confirm your order or the price. After reviewing your request, MILKUNE STORIES will send you the final price, delivery date and the materials we need. Production starts only after you approve and complete payment.",
+      contactNotice: "We’ll get back to you using the contact method you choose (Instagram or WhatsApp).",
+      submit: "SEND ORDER REQUEST",
+      sending: "Sending…",
+      consult: "Want to chat with us before ordering?",
+      success: {
+        title: "We’ve received your order request 🐾",
+        body: [
+          "Once we’ve reviewed it, MILKUNE STORIES will contact you with the final price, delivery date and the materials we need.",
+          "Your order isn’t confirmed yet, and no payment has been taken.",
+        ],
+        contactLine: "We’ll contact you on {method} at {value}.",
+      },
+      previewNote: "Preview: no form destination is set yet, so this request was not actually sent.",
+    },
 
     sheet: {
       title: "Chat with us on\nInstagram DM 🐾",

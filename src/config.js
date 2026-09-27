@@ -24,6 +24,17 @@ export const config = {
     },
   },
 
+  // ---- Order request form ----
+  // Where the "ORDER NOW" form sends requests (no payment is taken).
+  // Any service that accepts a POST of form fields works, e.g.
+  //   Formspree:           "https://formspree.io/f/xxxxxxx"
+  //   Google Apps Script:  "https://script.google.com/macros/s/xxxx/exec" (→ Google Sheets)
+  // While this is empty the form runs in preview mode: it shows the success
+  // screen with a "not actually sent" note, and nothing is delivered.
+  order: {
+    endpoint: "",
+  },
+
   // ---- Pricing (single source of truth) ----
   // Values are "starting from" prices.
   plans: [

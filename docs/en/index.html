@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="../assets/css/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"MILKUNE STORIES","description":"Dance. Talk. Cook. Go on adventures. We create one-of-a-kind AI videos starring your pet. FROM ¥3,980 / $29. Just DM “PET” on Instagram.","url":"https://example.com/en/","serviceType":"AI pet video production","offers":[{"@type":"Offer","name":"SAMPLE / TREND","price":29,"priceCurrency":"USD"},{"@type":"Offer","name":"CUSTOM SHORT","price":45,"priceCurrency":"USD"},{"@type":"Offer","name":"ORIGINAL MOVIE","price":69,"priceCurrency":"USD"},{"@type":"Offer","name":"BUSINESS","price":99,"priceCurrency":"USD"}],"sameAs":["https://www.instagram.com/milkune_stories/"]}</script>
 <script>(function(){var q=new URLSearchParams(location.search),l=(q.get("lang")||"").toLowerCase();if(l&&l.indexOf("ja")===0){q.delete("lang");var r=q.toString();location.replace("../"+(r?"?"+r:"")+location.hash);}})();</script>
-<script>window.MILKUNE={"lang":"en","instagramUrl":"https://www.instagram.com/milkune_stories/","keyword":"PET","sheet":{"title":"Chat with us on\nInstagram DM 🐾","step1":"Open @milkune_stories on Instagram","step2":"Send us “PET” by DM","body":"No need to have your idea all figured out — feel free to reach out.","open":"Open Instagram","copy":"Copy “PET”","copied":"Copied ✓","close":"Close"}};window.dataLayer=window.dataLayer||[];</script>
+<script>window.MILKUNE={"lang":"en","instagramUrl":"https://www.instagram.com/milkune_stories/","keyword":"PET","sheet":{"title":"Chat with us on\nInstagram DM 🐾","step1":"Open @milkune_stories on Instagram","step2":"Send us “PET” by DM","body":"No need to have your idea all figured out — feel free to reach out.","open":"Open Instagram","copy":"Copy “PET”","copied":"Copied ✓","close":"Close"},"orderEndpoint":"","orderForm":{"errors":{"required":"Please fill this in","choose":"Please choose one","instagram":"Please check your Instagram username (e.g. @username)","whatsapp":"Please include your country code (e.g. +81 90 XXXX XXXX)","url":"Please check the URL (it should start with https://)","summary":"Some fields are missing or need a quick check.","network":"We couldn’t send your request. Please check your connection and try again — or reach us by Instagram DM if it still doesn’t work."},"success":{"title":"We’ve received your order request 🐾","body":["Once we’ve reviewed it, MILKUNE STORIES will contact you with the final price, delivery date and the materials we need.","Your order isn’t confirmed yet, and no payment has been taken."],"contactLine":"We’ll contact you on {method} at {value}."},"sending":"Sending…","submit":"SEND ORDER REQUEST","methods":{"instagram":"Instagram","whatsapp":"WhatsApp"}}};window.dataLayer=window.dataLayer||[];</script>
 
 </head>
 <body class="lang-en">
@@ -89,7 +89,7 @@
       <p class="hero__body reveal">Dance. Talk. Cook. Go on adventures.<br>Or become the star of their own movie.<br>We create one-of-a-kind AI videos starring your pet.</p>
       <div class="hero__cta reveal">
         <p class="price-tag"><span>FROM ¥3,980 / $29</span></p>
-        <a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="hero" data-hero-cta>CREATE MY PET MOVIE</a>
+        <div class="cta-pair" data-hero-cta><a class="btn btn--primary" href="#order-form" data-cta="hero_order" data-direct >ORDER NOW</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="hero_dm" >DM US</a></div>
         <p class="dm-hint">DM “PET” to start 🐾</p>
       </div>
     </div>
@@ -144,7 +144,7 @@
       </li>
     </ul>
     <p class="swipe-hint" aria-hidden="true">← swipe →</p>
-    <div class="section__cta reveal"><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="examples" >MAKE ONE WITH MY PET</a></div>
+    <div class="section__cta reveal"><a class="btn btn--primary" href="#order-form" data-cta="examples_order" data-direct >ORDER NOW</a></div>
   </section>
 
   <section class="section why" id="why" aria-labelledby="why-title">
@@ -197,7 +197,7 @@
       <p class="solve__title" lang="en">You bring the dream.<br>We handle the AI. ✦</p>
       <p class="solve__lead">All you do is tell us, “I’d love to see my pet do this!”</p>
       <p class="solve__body">Prompt design, AI generation, all the trial and error, scene creation and editing — MILKUNE handles every step for you.</p><p class="solve__body">No juggling multiple AI subscriptions, and no worrying about the credits or time lost on failed generations. You simply order the finished video.</p>
-      <a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="why" >TELL US YOUR IDEA →</a>
+      <a class="btn btn--primary" href="#order-form" data-cta="why_order" data-direct >ORDER NOW</a>
     </div>
   </section>
 
@@ -298,7 +298,7 @@
       
       <p>※ Personal plans (SAMPLE / TREND, CUSTOM SHORT, ORIGINAL MOVIE) may not be used commercially. If you’d like to use a video commercially, please choose the BUSINESS plan.</p>
     </div>
-    <div class="section__cta reveal"><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="pricing" >ASK ABOUT A PLAN</a></div>
+    <div class="section__cta reveal"><div class="cta-pair" ><a class="btn btn--primary" href="#order-form" data-cta="pricing_order" data-direct >ORDER NOW</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="pricing_dm" >DM US</a></div></div>
   </section>
 
   <section class="section order" id="order" aria-labelledby="order-title">
@@ -343,7 +343,130 @@
       <span class="delivery__label" lang="en">DELIVERY</span>
       <span class="delivery__value">As fast as same day, within 5 days</span>
     </div>
-    <div class="section__cta reveal"><a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="order" >DM “PET” TO START</a></div>
+    <div class="section__cta reveal"><div class="cta-pair" ><a class="btn btn--primary" href="#order-form" data-cta="order_order" data-direct >ORDER NOW</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="order_dm" >DM US</a></div></div>
+  </section>
+
+  <section class="section order-form" id="order-form" aria-labelledby="order-form-title">
+    <header class="section__head reveal">
+      <p class="eyebrow">ORDER REQUEST</p>
+      <h2 class="section__title" id="order-form-title" >Order now</h2>
+      <p class="section__sub">Send us your order request</p>
+    </header>
+    <div class="order-card reveal">
+      <form class="oform" data-order-form novalidate>
+        <p class="oform__lead">Just tell us about the video you’d like and your order request is done.<br>No need to upload photos or videos now — once we’ve reviewed your request, MILKUNE STORIES will let you know which materials we need.</p>
+        <p class="oform__summary" data-form-summary role="alert" hidden></p>
+
+        <div class="field" data-field="name">
+          <label class="field__label" for="of-name">Your name <span class="field__req">Required</span></label>
+          <input class="field__input" id="of-name" name="name" type="text" autocomplete="name" required
+            placeholder="e.g. Emma Smith" aria-describedby="err-name">
+          <p class="field__error" id="err-name" data-error-for="name" hidden></p>
+        </div>
+
+        <fieldset class="field" data-field="contact_method">
+          <legend class="field__label">Preferred contact method <span class="field__req">Required</span></legend>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="contact_method" value="instagram" required>
+              <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>Instagram</span></label>
+            <label class="choice"><input type="radio" name="contact_method" value="whatsapp">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"/><path d="M9.2 9.3c.3 1.9 1.6 3.4 3.6 4.1l1-1.1 1.8.8c-.2 1.2-1.2 1.8-2.3 1.7-2.9-.4-5-2.6-5.4-5.4-.1-1.1.5-2.1 1.7-2.3l.8 1.8z" fill="currentColor" stroke="none"/></svg>WhatsApp</span></label>
+          </div>
+          <p class="field__error" id="err-contact_method" data-error-for="contact_method" hidden></p>
+        </fieldset>
+
+        <div class="field" data-field="instagram" data-contact-field="instagram" hidden>
+          <label class="field__label" for="of-instagram">Instagram username <span class="field__req">Required</span></label>
+          <input class="field__input" id="of-instagram" name="instagram" type="text" autocomplete="off"
+            autocapitalize="none" spellcheck="false" placeholder="@username"
+            aria-describedby="hint-instagram err-instagram">
+          <p class="field__hint" id="hint-instagram">e.g. @username</p>
+          <p class="field__error" id="err-instagram" data-error-for="instagram" hidden></p>
+        </div>
+
+        <div class="field" data-field="whatsapp" data-contact-field="whatsapp" hidden>
+          <label class="field__label" for="of-whatsapp">WhatsApp number <span class="field__req">Required</span></label>
+          <input class="field__input" id="of-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel"
+            placeholder="+1 555 123 4567" aria-describedby="hint-whatsapp err-whatsapp">
+          <p class="field__hint" id="hint-whatsapp">Please include your country code (e.g. +81 90 XXXX XXXX)</p>
+          <p class="field__error" id="err-whatsapp" data-error-for="whatsapp" hidden></p>
+        </div>
+
+        <div class="field" data-field="pet">
+          <label class="field__label" for="of-pet">Type of pet <span class="field__req">Required</span></label>
+          <input class="field__input" id="of-pet" name="pet" type="text" required
+            placeholder="e.g. Dog (Toy Poodle), Cat (Calico)" aria-describedby="err-pet">
+          <p class="field__error" id="err-pet" data-error-for="pet" hidden></p>
+        </div>
+
+        <fieldset class="field" data-field="plan">
+          <legend class="field__label">Plan you’re interested in <span class="field__req">Required</span></legend>
+          <div class="plan-choices">
+            
+            <label class="choice choice--plan"><input type="radio" name="plan" value="sample" required>
+              <span><b lang="en">SAMPLE / TREND</b><small>FROM ¥3,980 / $29</small></span></label>
+            <label class="choice choice--plan"><input type="radio" name="plan" value="custom" required>
+              <span><b lang="en">CUSTOM SHORT</b><small>FROM ¥5,980 / $45</small></span></label>
+            <label class="choice choice--plan"><input type="radio" name="plan" value="original" required>
+              <span><b lang="en">ORIGINAL MOVIE</b><small>FROM ¥10,000 / $69</small></span></label>
+            <label class="choice choice--plan"><input type="radio" name="plan" value="business" required>
+              <span><b lang="en">BUSINESS</b><small>FROM ¥15,000 / $99</small></span></label>
+            <label class="choice choice--plan"><input type="radio" name="plan" value="unsure" required>
+              <span><b >Not sure yet</b></span></label>
+          </div>
+          <p class="field__error" id="err-plan" data-error-for="plan" hidden></p>
+        </fieldset>
+
+        <div class="field" data-field="request">
+          <label class="field__label" for="of-request">What would you like us to create? <span class="field__req">Required</span></label>
+          <textarea class="field__input field__textarea" id="of-request" name="request" rows="5" required
+            placeholder="e.g. A fun, upbeat ~15-second video of my dog dancing in front of a birthday cake" aria-describedby="err-request"></textarea>
+          <p class="field__error" id="err-request" data-error-for="request" hidden></p>
+        </div>
+
+        <div class="field" data-field="reference_url">
+          <label class="field__label" for="of-ref">Reference video URL <span class="field__opt">Optional</span></label>
+          <input class="field__input" id="of-ref" name="reference_url" type="url" inputmode="url" autocapitalize="none"
+            spellcheck="false" placeholder="https://" aria-describedby="err-reference_url">
+          <p class="field__error" id="err-reference_url" data-error-for="reference_url" hidden></p>
+        </div>
+
+        <fieldset class="field" data-field="commercial">
+          <legend class="field__label">Commercial use <span class="field__req">Required</span></legend>
+          <div class="choice-col">
+            <label class="choice"><input type="radio" name="commercial" value="no" required><span>No — personal use only</span></label>
+            <label class="choice"><input type="radio" name="commercial" value="yes"><span>Yes — for a shop, brand, social media, ads, etc.</span></label>
+          </div>
+          <p class="field__note" data-business-hint hidden>Commercial use is covered by the BUSINESS plan, so we’ll quote you on that plan.</p>
+          <p class="field__error" id="err-commercial" data-error-for="commercial" hidden></p>
+        </fieldset>
+
+        <!-- spam trap: humans never see or fill this -->
+        <div class="oform__trap" aria-hidden="true">
+          <label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div class="oform__notice">
+          <p>※ Submitting this form does not confirm your order or the price. After reviewing your request, MILKUNE STORIES will send you the final price, delivery date and the materials we need. Production starts only after you approve and complete payment.</p>
+          <p>※ We’ll get back to you using the contact method you choose (Instagram or WhatsApp).</p>
+        </div>
+
+        <button class="btn btn--primary btn--block oform__submit" type="submit" data-order-submit>SEND ORDER REQUEST</button>
+      </form>
+
+      <div class="oform__done" data-order-done tabindex="-1" hidden>
+        <span class="sheet__paw"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><ellipse cx="12" cy="16" rx="5" ry="4.2"/><ellipse cx="5.5" cy="10.5" rx="2.1" ry="2.7"/><ellipse cx="9.5" cy="6.5" rx="2.1" ry="2.8"/><ellipse cx="14.5" cy="6.5" rx="2.1" ry="2.8"/><ellipse cx="18.5" cy="10.5" rx="2.1" ry="2.7"/></svg></span>
+        <h3 class="oform__done-title">We’ve received your order request 🐾</h3>
+        <p>Once we’ve reviewed it, MILKUNE STORIES will contact you with the final price, delivery date and the materials we need.</p><p>Your order isn’t confirmed yet, and no payment has been taken.</p>
+        <p class="oform__done-contact" data-order-contact></p>
+        <p class="oform__preview">Preview: no form destination is set yet, so this request was not actually sent.</p>
+      </div>
+
+      <div class="oform__consult">
+        <p>Want to chat with us before ordering?</p>
+        <a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="order_form_dm" >DM US</a>
+      </div>
+    </div>
   </section>
 
   <section class="section brand" id="story" aria-labelledby="story-title">
@@ -426,7 +549,7 @@
       <p class="final__body reveal">Maybe they dance.<br>Maybe they cook.<br>Maybe they finally tell you how much they love you.</p><p class="final__body reveal">What would you love to see them do?<br>Tell us — we’re all ears.</p>
       
       <p class="price-tag reveal"><span>FROM ¥3,980 / $29</span></p>
-      <div class="reveal"><a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="final" data-final-cta>💌 DM “PET” TO START</a></div>
+      <div class="reveal"><div class="cta-pair" data-final-cta><a class="btn btn--primary" href="#order-form" data-cta="final_order" data-direct >ORDER NOW</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="final_dm" >DM US</a></div></div>
     </div>
   </section>
 </main>
@@ -441,7 +564,7 @@
   </footer>
 
   <div class="sticky-cta" data-sticky-cta hidden>
-    <a class="btn btn--primary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="sticky" >🐾 Create My Pet Movie</a>
+    <div class="sticky-cta__row"><a class="btn btn--primary" href="#order-form" data-cta="sticky_order" data-direct >ORDER NOW</a><a class="btn btn--secondary" href="https://www.instagram.com/milkune_stories/" target="_blank" rel="noopener" data-cta="sticky_dm" >DM US</a></div>
   </div>
 
   <div class="sheet" data-sheet hidden>
