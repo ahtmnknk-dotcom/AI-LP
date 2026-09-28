@@ -58,10 +58,13 @@ InstagramのURLを変えると、全CTA・フッター・表示される @ユー
 - 入力項目：お名前／ご希望の連絡方法（Instagram または WhatsApp）＋選んだ方の連絡先（必須）／ペットの種類／希望プラン（4プラン＋まだ分からない）／作りたい動画・希望内容／参考動画URL（任意）／商用利用の有無
 - 送信データ（項目名）：`name` `contact_method` `contact` `instagram` `whatsapp` `pet` `plan` `request` `reference_url` `commercial_use` `lang` `page` `submitted_at`
 - 文言は `src/content.js` の `orderForm`（JP / EN）
+- claude.ai のプレビュー（`tools/build-preview.mjs`）は外部へ送信できないため、常にプレビューモード（送信しない）で生成されます
 
 ### 送信先の設定（公開前に必須）
 
 `src/config.js` の `order.endpoint` にフォームの受け取り先URLを入れて `npm run build` してください。
+（現在の設定：`https://formspree.io/f/xbglpvll`）
+
 **空のままだとプレビューモード**になり、完了画面に「実際には送信されていません」と表示され、内容はどこにも届きません。
 
 - **Formspree**（一番かんたん）：formspree.io でフォームを作成 → `https://formspree.io/f/xxxxxxx` を設定。届いた内容はメールと管理画面で確認できます。

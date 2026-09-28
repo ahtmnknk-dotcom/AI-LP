@@ -32,7 +32,7 @@ export const config = {
   // While this is empty the form runs in preview mode: it shows the success
   // screen with a "not actually sent" note, and nothing is delivered.
   order: {
-    endpoint: "",
+    endpoint: "https://formspree.io/f/xbglpvll",
   },
 
   // ---- Pricing (single source of truth) ----

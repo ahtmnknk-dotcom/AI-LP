@@ -2,6 +2,16 @@
 // for sharing as a private claude.ai Artifact. Not used for production.
 // Usage: npm run build && node tools/build-preview.mjs
 import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, copyFileSync } from "node:fs";
+import { config } from "../src/config.js";
+import { content } from "../src/content.js";
+import { renderPage } from "../src/template.js";
+
+// The Artifact viewer cannot send data to outside services, so the preview
+// always runs the order form in preview mode (nothing is sent), with a note
+// that says so. Production pages in docs/ keep the real endpoint.
+config.order.endpoint = "";
+content.ja.orderForm.previewNote = "プレビュー画面のため、この内容は実際には送信されていません（公開サイトでは送信されます）。";
+content.en.orderForm.previewNote = "This is a preview, so the request was not actually sent (it will be on the live site).";
 
 const css = readFileSync("docs/assets/css/style.css", "utf8");
 const js = readFileSync("docs/assets/js/main.js", "utf8");
@@ -29,7 +39,7 @@ for (const f of readdirSync("docs/assets/videos")) {
 }
 
 // JP page: the Artifact host supplies <!doctype>/<html>/<head>/<body>, so emit a fragment.
-let ja = inline(readFileSync("docs/index.html", "utf8"), "");
+let ja = inline(renderPage(content.ja), "");
 ja = ja
   .replace(/<!doctype html>\n<html[^>]*>\n<head>\n/, "")
   .replace(/<\/head>\n<body class="lang-ja">/, '<script>document.documentElement.lang="ja";document.body.classList.add("lang-ja");</script>')
@@ -37,5 +47,5 @@ ja = ja
 writeFileSync("preview/index.html", ja);
 
 // EN page: served as a supporting page, so it keeps its full document.
-writeFileSync("preview/en/index.html", inline(readFileSync("docs/en/index.html", "utf8"), "../"));
+writeFileSync("preview/en/index.html", inline(renderPage(content.en), "../"));
 console.log("✓ preview/index.html + preview/en/index.html");
