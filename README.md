@@ -18,7 +18,7 @@
 | 料金（全セクション共通で反映） | `src/config.js` → `plans` |
 | サンプル動画・ポスター画像 | `src/config.js` → `videos`（`src` が空ならプレースホルダー表示） |
 | ロゴ画像 | `src/config.js` → `logo`（空ならテキストロゴ） |
-| 公開URL（canonical / OGP / hreflang） | `src/config.js` → `siteUrl` **※公開前に必ず変更** |
+| 公開URL（canonical / OGP / hreflang） | `src/config.js` → `siteUrl`（現在：`https://ahtmnknk-dotcom.github.io/AI-LP/`） |
 | アナリティクスタグ（GA4 / Meta Pixel等） | `src/config.js` → `analytics.headHtml` / `bodyEndHtml` |
 | 文言（JP / EN） | `src/content.js` |
 | デザイン | `src/assets/css/style.css`（色は先頭の `:root` 変数） |

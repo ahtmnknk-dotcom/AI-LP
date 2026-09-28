@@ -7,7 +7,7 @@
 export const config = {
   // Public URL where the site is hosted (used for canonical / hreflang / OG).
   // Must end with a slash.
-  siteUrl: "https://example.com/",
+  siteUrl: "https://ahtmnknk-dotcom.github.io/AI-LP/",
 
   brandName: "MILKUNE STORIES",
 
