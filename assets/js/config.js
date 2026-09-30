@@ -8,7 +8,7 @@ window.HITOTSUME_CONFIG = {
   // ▼ Instagram の URL（ページ内のすべての Instagram リンクに反映）
   //   プロフィール: "https://www.instagram.com/アカウント名/"
   //   DM を直接開く: "https://ig.me/m/アカウント名"
-  instagramUrl: "https://www.instagram.com/nextrelive_ai/",
+  instagramUrl: "https://www.instagram.com/hitotsume_marketing/",
 
   // ▼ 問い合わせフォームの送信先
   //   provider を設定するまでは、送信時に「送信できませんでした」と表示されます。
