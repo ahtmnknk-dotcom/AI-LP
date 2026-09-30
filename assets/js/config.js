@@ -18,7 +18,7 @@ window.HITOTSUME_CONFIG = {
     provider: "web3forms",
 
     // provider: "web3forms" のとき：https://web3forms.com で発行した Access Key
-    web3formsAccessKey: "",
+    web3formsAccessKey: "caee9eb0-053e-4496-abbf-e4e34af38398",
 
     // provider: "formspree" のとき：https://formspree.io/f/xxxxxxx
     // provider: "gas" のとき：Apps Script ウェブアプリの URL（https://script.google.com/macros/s/.../exec）
