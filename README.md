@@ -21,7 +21,7 @@ robots.txt
 | Instagram URL（全Instagramリンクに反映） | `assets/js/config.js` の `instagramUrl` |
 | フォームの送信先 | `assets/js/config.js` の `form` |
 | Google Analytics 4 | `assets/js/config.js` の `ga4Id` |
-| 公開URL（canonical / OGP） | `index.html` の `https://example.com/` を置換 |
+| 公開URL（canonical / OGP） | `index.html` の `https://hitotsume-marketing.netlify.app/` を置換 |
 | favicon / OGP画像 | `assets/img/` のファイルを同名で差し替え |
 
 メインCTA（「まずは相談してみる」「30日間、試してみる」など）は、すべてページ内のフォーム（`#contact`）へスクロールします。
