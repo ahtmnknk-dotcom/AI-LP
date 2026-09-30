@@ -1,0 +1,9 @@
+# Netlify 設定（ビルド不要の静的サイト）
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
