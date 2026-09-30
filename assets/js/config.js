@@ -8,14 +8,14 @@ window.HITOTSUME_CONFIG = {
   // ▼ Instagram の URL（ページ内のすべての Instagram リンクに反映）
   //   プロフィール: "https://www.instagram.com/アカウント名/"
   //   DM を直接開く: "https://ig.me/m/アカウント名"
-  instagramUrl: "https://www.instagram.com/REPLACE_ME/",
+  instagramUrl: "https://www.instagram.com/nextrelive_ai/",
 
   // ▼ 問い合わせフォームの送信先
   //   provider を設定するまでは、送信時に「送信できませんでした」と表示されます。
   //   詳しい設定方法は README.md「問い合わせフォームの送信先」を参照。
   form: {
     // "web3forms" | "formspree" | "gas"（Google Apps Script）
-    provider: "",
+    provider: "web3forms",
 
     // provider: "web3forms" のとき：https://web3forms.com で発行した Access Key
     web3formsAccessKey: "",
