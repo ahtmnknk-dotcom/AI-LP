@@ -52,9 +52,9 @@ export const site = {
    * fields はフォームに hidden で一緒に送る値です（空の値は送りません）。
    */
   form: {
-    endpoint: '',
+    endpoint: 'https://api.web3forms.com/submit',
     fields: {
-      access_key: '',
+      access_key: 'caee9eb0-053e-4496-abbf-e4e34af38398',
       subject: '【PURPOSE】LPから新しいお問い合わせが届きました',
       from_name: 'PURPOSE 公式LP',
     },
