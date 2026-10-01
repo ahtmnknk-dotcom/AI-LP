@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <rect width="1600" height="1000" fill="#fafaf8"/>
+  <g font-family="'Noto Sans JP','Hiragino Sans',sans-serif" fill="#111">
+    <text x="80" y="78" font-size="26" font-weight="700">ひとつめ。</text>
+    <g font-size="15" fill="#555" font-family="'Inter Tight',Arial,sans-serif" letter-spacing="1">
+      <text x="1090" y="76">SERVICE</text><text x="1200" y="76">ABOUT</text><text x="1300" y="76">FLOW</text>
+    </g>
+    <rect x="1400" y="52" width="120" height="38" rx="19" fill="#111"/>
+    <text x="1426" y="77" font-size="14" fill="#fff" font-family="'Inter Tight',Arial,sans-serif" letter-spacing="1">CONTACT</text>
+    <line x1="80" y1="128" x2="1520" y2="128" stroke="#111" stroke-width="1.5"/>
+    <text x="80" y="168" font-size="14" fill="#777" font-family="'Inter Tight',Arial,sans-serif" letter-spacing="3">MARKETING SUPPORT FOR SMALL BUSINESS</text>
+    <text x="72" y="470" font-size="250" font-weight="900" letter-spacing="-14">まず、</text>
+    <text x="72" y="740" font-size="250" font-weight="900" letter-spacing="-14">ひとつめ。</text>
+    <rect x="1160" y="560" width="360" height="2" fill="#111"/>
+    <rect x="1160" y="600" width="300" height="12" fill="#cfcfca"/>
+    <rect x="1160" y="626" width="340" height="12" fill="#cfcfca"/>
+    <rect x="1160" y="652" width="220" height="12" fill="#cfcfca"/>
+    <line x1="80" y1="860" x2="1520" y2="860" stroke="#ddd"/>
+    <g font-family="'Inter Tight',Arial,sans-serif" font-size="14" fill="#999" letter-spacing="2">
+      <text x="80" y="910">01 — THINK</text><text x="560" y="910">02 — DESIGN</text><text x="1040" y="910">03 — DELIVER</text>
+    </g>
+  </g>
+  <text x="1520" y="975" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#bbb" letter-spacing="2">PLACEHOLDER — REPLACE WITH SCREENSHOT</text>
+</svg>

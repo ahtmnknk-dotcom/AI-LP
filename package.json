@@ -1,0 +1,15 @@
+{
+  "name": "purpose-lp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "完全オリジナルLP制作サービスの公式サイト（静的ビルド・依存なし）",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && node tools/serve.mjs",
+    "preview": "node tools/serve.mjs"
+  }
+}
