@@ -36,6 +36,7 @@ export const Contact = ({ site }) => html`
 
       <div class="contact__panel" data-reveal>
         <form class="form" data-form action="${site.form.endpoint || '#contact'}" method="post" novalidate data-endpoint="${site.form.endpoint}">
+          ${Object.entries(site.form.fields || {}).filter(([, value]) => value).map(([name, value]) => html`<input type="hidden" name="${name}" value="${value}">`)}
           ${field({
             id: 'f-name',
             label: 'お名前',

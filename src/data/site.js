@@ -45,9 +45,19 @@ export const site = {
    * お問い合わせフォームの送信先。
    * Formspree / Getform / 自前API など、FormData を POST で受け取れるエンドポイントを指定。
    * 空文字のままだとデモモード（送信せず完了画面のみ表示）で動作します。
+   *
+   * Web3Forms（https://web3forms.com）を使う場合：
+   *   endpoint を 'https://api.web3forms.com/submit' にし、fields.access_key に Access Key を入れてください。
+   *   Access Key に登録したメールアドレスへ届きます。
+   * fields はフォームに hidden で一緒に送る値です（空の値は送りません）。
    */
   form: {
     endpoint: '',
+    fields: {
+      access_key: '',
+      subject: '【PURPOSE】LPから新しいお問い合わせが届きました',
+      from_name: 'PURPOSE 公式LP',
+    },
   },
 
   /** SNSなど（フッター・構造化データ sameAs に使用） */

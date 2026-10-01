@@ -187,7 +187,8 @@
     try {
       if (endpoint) {
         const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || json.success === false) throw new Error(json.message || `HTTP ${res.status}`);
       } else {
         // デモモード: site.form.endpoint が未設定のため実際には送信していません
         console.info('[contact] demo mode — set site.form.endpoint to receive submissions.', Object.fromEntries(data));
