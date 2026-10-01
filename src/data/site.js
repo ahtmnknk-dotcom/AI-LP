@@ -8,7 +8,7 @@ export const site = {
   tagline: 'Original LP Design Studio',
 
   /** 本番URL（末尾スラッシュあり）。canonical / OGP / 構造化データに使用 */
-  url: 'https://capable-cat-6037f0.netlify.app/',
+  url: 'https://lpstudio298.netlify.app/',
 
   lang: 'ja',
   locale: 'ja_JP',
