@@ -28,6 +28,7 @@ favicon.ico, site.webmanifest, robots.txt, sitemap.xml
 1. GitHub のリポジトリ → Settings → Pages
 2. Source: `Deploy from a branch` / Branch: `main`（または公開したいブランチ）・`/ (root)`
 3. 公開URLは `https://ahtmnknk-dotcom.github.io/AI-LP/`
+   - 注意：`claude/milkune-stories-lp-r1c23f` ブランチ（MILKUNE STORIES）も同じURLを公開先に設定しています。同じリポジトリのGitHub Pagesで公開できるのは1つだけなので、どちらかを別の場所（Netlifyなど）で公開してください
 
 独自ドメインで公開する場合は、次の箇所のURLを書き換えてください。
 
@@ -55,27 +56,34 @@ Netlify・Cloudflare Pages などでも、そのままアップロードすれ�
 
 他のサービスに切り替える場合は、`form` の `action` を変更してください（Formspree、Netlify Forms など）。`main.js` は `formsubmit.co/` を `formsubmit.co/ajax/` に置き換えて送信するので、別サービスに切り替えるときは `initForm()` の `endpoint` も合わせて変更します。
 
+## 制作事例（PROJECTS）の素材
+
+`assets/work/` に実素材を置いています（WebP＋JPEGフォールバック、動画は360×640・音声なし・約570KB）。
+
+| 事例 | 素材の出どころ |
+| --- | --- |
+| 01 PURPOSE | `claude/wonderful-bohr-snqej1` ブランチのPURPOSE LPをビルドしてPC / スマホ表示を撮影 |
+| 02 ひとつめ。 | 同ブランチの `public/assets/works/hitotsume-*.jpg` |
+| 03 MILKUNE STORIES | 同ブランチの `milkune-*.jpg`、動画は `claude/milkune-stories-lp-r1c23f` の `dance.mp4` を軽量化 |
+
+「サイトを見る」のリンク先は `https://lpstudio298.netlify.app/`（PURPOSE）と、その配下の `works/hitotsume/`・`works/milkune/` です。
+**この開発環境からは外部サイトに接続できないため、リンク先は公開後に開けるか確認してください。**
+
+画像を差し替えるときは同じファイル名・同じ縦横比（PC 1600×1000 / スマホ 480×1038）で上書きすれば、レイアウトは崩れません。
+
 ## 公開前に差し替える素材
 
-現在は、実素材がない箇所にタイポグラフィで作ったキービジュアルを仮に置いています。架空の実績・写真・数値は使っていません。
+架空の実績・写真・数値は使っていません。
 
 | 場所 | 現状 | 差し替えたい素材 |
 | --- | --- | --- |
 | ロゴ（ヘッダー・フッター） | テキストのワードマーク | 正式ロゴ（SVG推奨） |
 | favicon / アイコン / OGP | ワードマークをもとに作った仮デザイン | 正式ロゴ版（`assets/img/`） |
-| WORK 01 PURPOSE | タイポグラフィのキービジュアル | PURPOSE LP の実スクリーンショット（PC / スマホ） |
-| WORK 02 ひとつめ。 | タイポグラフィのキービジュアル | ひとつめ。のロゴ・ページ画像 |
-| WORK 03 AI AD STUDIO | 縦型のストーリーボード風アニメーション | 実際のAI広告動画（縦型 mp4/webm、10〜15秒、1MB程度、poster 画像つき） |
-| WORK 04 LIVE COMMERCE | タイポグラフィのキービジュアル | 関連する実素材があれば |
-| MILKUNE STORIES など他のWeb制作事例 | 未掲載（素材なし） | 実際のLPのスクリーンショット + 概要 |
+| 04 AI AD STUDIO | 縦型のストーリーボード風アニメーション | 実際のAI広告動画（縦型 mp4、10〜15秒、1MB程度、poster 画像つき） |
+| 05 LIVE COMMERCE | タイポグラフィのキービジュアル | 関連する実素材があれば |
 
 `index.html` の該当箇所に `<!-- REPLACE: ... -->` コメントを入れています。
-動画を入れる場合の例:
-
-```html
-<video src="assets/video/ad-01.mp4" poster="assets/video/ad-01.jpg"
-       muted playsinline loop autoplay preload="none"></video>
-```
+動画は MILKUNE STORIES の `<video data-autoplay>` と同じ書き方にすると、画面に入ったときだけ再生され、動きを減らす設定の閲覧者には自動再生されません。
 
 ## 掲載していない情報（意図的）
 

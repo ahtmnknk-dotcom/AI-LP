@@ -19,6 +19,8 @@
     initTopicLinks();
     initForm();
     initDock();
+    initScrollMotion();
+    initVideos();
     var y = $('[data-year]');
     if (y) y.textContent = new Date().getFullYear();
   });
@@ -107,20 +109,31 @@
 
   /* ---------- reveal on scroll ---------- */
   function initReveal() {
-    var targets = $$('[data-reveal], [data-strike]');
+    var targets = $$('[data-reveal], [data-strike], [data-case], article.stage');
     if (!('IntersectionObserver' in window)) {
       targets.forEach(function (el) { el.classList.add('is-in'); });
       return;
     }
+    // headings start fully clipped, which IntersectionObserver reports as not
+    // intersecting, so they are observed through their parent element
+    var proxies = new Map();
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          io.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        (proxies.get(entry.target) || [entry.target]).forEach(function (el) { el.classList.add('is-in'); });
+        io.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
-    targets.forEach(function (el) { io.observe(el); });
+    targets.forEach(function (el) {
+      if (el.tagName === 'H2') {
+        var parent = el.parentElement;
+        if (!proxies.has(parent)) proxies.set(parent, []);
+        proxies.get(parent).push(el);
+        io.observe(parent);
+      } else {
+        io.observe(el);
+      }
+    });
   }
 
   /* ---------- THINK → MAKE → DELIVER → SELL ---------- */
@@ -158,6 +171,12 @@
         n.classList.toggle('is-done', k < i);
       });
       stages.forEach(function (s, k) { s.classList.toggle('is-now', k === i); });
+      // short red swipe under the stage word to mark the switch
+      if (i > 0 || flow.classList.contains('is-switch')) {
+        flow.classList.remove('is-switch');
+        void flow.offsetWidth;
+        flow.classList.add('is-switch');
+      }
     }
 
     function update() {
@@ -395,5 +414,83 @@
     io.observe(hero);
     if (contact) io.observe(contact);
     if (footer) io.observe(footer);
+  }
+
+  /* ---------- scroll-linked motion (hero drift / statement band / phone parallax) ---------- */
+  function initScrollMotion() {
+    if (reduceMotion.matches) return;
+    var lines = $$('[data-drift]');
+    var hero = $('[data-hero]');
+    var band = $('[data-band]');
+    var bandA = $('[data-band-a]');
+    var bandB = $('[data-band-b]');
+    var phones = $$('[data-parallax]');
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var vh = window.innerHeight;
+      var vw = window.innerWidth;
+
+      if (hero) {
+        var hr = hero.getBoundingClientRect();
+        if (hr.bottom > 0) {
+          var hp = Math.min(Math.max(-hr.top / Math.max(hr.height, 1), 0), 1);
+          lines.forEach(function (l) {
+            var dir = Number(l.getAttribute('data-drift')) || 0;
+            l.style.transform = 'translate3d(' + (dir * hp * vw * 0.06).toFixed(1) + 'px,0,0)';
+          });
+        }
+      }
+
+      if (band && bandA && bandB) {
+        var br = band.getBoundingClientRect();
+        if (br.bottom > 0 && br.top < vh) {
+          // -1 (entering from below) … 0 (centred) … 1 (leaving at top)
+          var bc = Math.min(Math.max((vh / 2 - (br.top + br.height / 2)) / vh, -1), 1);
+          bandA.style.setProperty('--ax', (bc * -vw * 0.06).toFixed(1) + 'px');
+          bandB.style.setProperty('--bx', (bc * vw * 0.06).toFixed(1) + 'px');
+        }
+      }
+
+      phones.forEach(function (ph) {
+        var r = ph.parentNode.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        var c = (r.top + r.height / 2 - vh / 2) / vh;
+        ph.style.setProperty('--py', (c * -48).toFixed(1) + 'px');
+      });
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  }
+
+  /* ---------- work videos: play only while visible ---------- */
+  function initVideos() {
+    var videos = $$('video[data-autoplay]');
+    if (!videos.length) return;
+    if (reduceMotion.matches || !('IntersectionObserver' in window)) {
+      videos.forEach(function (v) { v.controls = true; v.preload = 'none'; });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) {
+          var p = v.play();
+          if (p && p.catch) p.catch(function (err) { if (err && err.name === 'NotAllowedError') v.controls = true; });
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.35 });
+    videos.forEach(function (v) { io.observe(v); });
   }
 })();

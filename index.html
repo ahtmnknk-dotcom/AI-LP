@@ -68,7 +68,7 @@
           <li><a href="#company">会社概要</a></li>
         </ul>
       </nav>
-      <a class="header__cta" href="#contact">相談する</a>
+      <a class="header__cta" href="#contact">事業の相談をする</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
         <span class="menu-btn__label">メニュー</span>
         <span class="menu-btn__icon" aria-hidden="true"><i></i><i></i></span>
@@ -95,26 +95,38 @@
   <main id="main">
 
     <!-- ============ HERO ============ -->
-    <section class="hero" id="top" aria-labelledby="hero-title">
+    <section class="hero" id="top" aria-labelledby="hero-title" data-hero>
       <div class="wrap hero__wrap">
-        <p class="hero__eyebrow">
-          <span>株式会社Next Re.Live</span>
-          <span class="hero__place">愛媛・内子</span>
-        </p>
+        <div class="hero__top">
+          <p class="hero__eyebrow">
+            <span>株式会社Next Re.Live</span>
+            <span class="hero__place">愛媛・内子</span>
+          </p>
+        </div>
 
         <h1 class="hero__title" id="hero-title">
-          <span class="hero__line"><span class="hero__word">Ideas</span> <span class="hero__word">are</span> <span class="hero__word">easy<i class="dot">.</i></span></span>
-          <span class="hero__line"><span class="hero__word">We</span> <span class="hero__word">make</span> <span class="hero__word">them</span> <span class="hero__word hero__work">work<i class="dot">.</i><svg class="pen pen--circle" viewBox="0 0 240 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M28 58 C 18 28, 92 10, 160 14 C 222 18, 236 52, 206 72 C 168 94, 70 92, 30 76 C 4 64, 14 38, 58 26"/></svg></span></span>
+          <span class="hero__line hero__line--sub" data-drift="1"><span class="hero__word">Ideas</span> <span class="hero__word">are</span> <span class="hero__word">easy<i class="dot">.</i></span></span>
+          <span class="hero__line hero__line--main" data-drift="-1"><span class="hero__word">We</span> <span class="hero__word">make</span> <span class="hero__word">them</span> <span class="hero__word hero__work">work<i class="dot">.</i><svg class="pen pen--circle" viewBox="0 0 240 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M28 58 C 18 28, 92 10, 160 14 C 222 18, 236 52, 206 72 C 168 94, 70 92, 30 76 C 4 64, 14 38, 58 26"/></svg></span></span>
         </h1>
+
+        <nav class="hero__stages" aria-label="Next Re.Liveの4つの仕事">
+          <ol>
+            <li><a href="#st-think"><span class="hs__en" aria-hidden="true">THINK<i>.</i></span><b>考える</b><small>事業と売り方を決める</small></a></li>
+            <li><a href="#st-make"><span class="hs__en" aria-hidden="true">MAKE<i>.</i></span><b>作る</b><small>伝わるページをつくる</small></a></li>
+            <li><a href="#st-deliver"><span class="hs__en" aria-hidden="true">DELIVER<i>.</i></span><b>届ける</b><small>広告や動画で人に届ける</small></a></li>
+            <li><a href="#st-sell"><span class="hs__en" aria-hidden="true">SELL<i>.</i></span><b>売る</b><small>売れる仕組みにする</small></a></li>
+          </ol>
+        </nav>
 
         <div class="hero__grid">
           <div class="hero__copy">
             <p class="hero__ja">アイデアを、事業に。<br>事業を、届く仕組みに。</p>
-            <p class="hero__lead">マーケティング、Web・LP制作、広告クリエイティブ、ライブコマース。<br class="pc">考えて、作って、届けて、売るところまで。ひとつのチームで、事業を前に進める会社です。</p>
+            <p class="hero__lead">事業を考え、ページや動画をつくり、広告で伝え、売れる仕組みにするまで。マーケティングからWeb・LP制作、広告クリエイティブ、ライブコマースまでを、ひとつのチームで引き受ける会社です。</p>
             <div class="hero__actions">
               <a class="btn btn--ink" href="#contact">事業の相談をする<span class="btn__arrow" aria-hidden="true">→</span></a>
               <a class="link-under" href="#flow">仕事の流れを見る</a>
             </div>
+            <p class="hero__note">何を頼めばいいか決まっていない段階でも、相談できます。</p>
           </div>
 
           <figure class="memo" data-memo>
@@ -144,13 +156,14 @@
             <figcaption>作る前に、順番を決める。<br>それが、私たちの最初の仕事です。</figcaption>
           </figure>
         </div>
+
       </div>
     </section>
 
     <!-- ============ PHILOSOPHY ============ -->
     <section class="philosophy" id="philosophy" aria-labelledby="philosophy-title">
       <div class="wrap">
-        <p class="label">考え方</p>
+        <p class="label"><span class="label__n" aria-hidden="true">01</span><span class="label__t">考え方</span></p>
         <h2 class="philosophy__title" id="philosophy-title" data-reveal>本当に、<br>今それが<span class="nobr">必要？</span></h2>
 
         <div class="philosophy__body" data-reveal>
@@ -182,7 +195,7 @@
     <section class="flow" id="flow" aria-labelledby="flow-title" data-flow>
       <div class="wrap">
         <header class="flow__intro">
-          <p class="label">事業</p>
+          <p class="label"><span class="label__n" aria-hidden="true">02</span><span class="label__t">事業</span></p>
           <h2 class="flow__title" id="flow-title" data-reveal>4つの事業は、<br>ひとつの流れです。</h2>
           <p class="flow__lead" data-reveal>マーケティング、Web・LP、広告クリエイティブ、ライブコマース。別々のサービスに見えて、実際は事業が前に進むときの、ひとつながりの工程です。担当が途中で入れ替わらないから、最初に決めた「誰に・何を」が、最後の「売る」までずれません。</p>
         </header>
@@ -197,6 +210,9 @@
               </div></div>
               <div class="rail__ja"><div class="rail__stack" data-stage-stack>
                 <span>考える</span><span>作る</span><span>届ける</span><span>売る</span>
+              </div></div>
+              <div class="rail__sum"><div class="rail__stack" data-stage-stack>
+                <span>事業と売り方を決める</span><span>伝わるページをつくる</span><span>広告や動画で人に届ける</span><span>売れる仕組みにする</span>
               </div></div>
               <ol class="rail__track">
                 <li data-stage-node="0"><b>THINK</b><span>マーケティング</span></li>
@@ -223,12 +239,13 @@
             <article class="stage" data-stage="0" aria-labelledby="st-think">
               <p class="stage__big" aria-hidden="true">THINK<i>.</i></p>
               <p class="stage__meta"><span>01</span><span>MARKETING</span><span>考える</span></p>
+              <p class="stage__kicker"><b>考える</b><span>事業と売り方を決める</span></p>
               <h3 class="stage__title" id="st-think"><span class="sr">THINK. 考える ― マーケティング：</span>やることを決める。<br>やらないことも決める。</h3>
               <p class="stage__text">事業・商品・集客の課題を整理して、今やるべきことをはっきりさせます。ばらばらに見えている悩みを、順番のついた計画に並べ直すところから始めます。</p>
               <ul class="stage__list">
-                <li>マーケティング支援</li>
+                <li>戦略設計</li>
                 <li>事業・商品設計</li>
-                <li>集客導線の改善</li>
+                <li>集客導線の設計・改善</li>
                 <li>SNS・Webマーケティング</li>
                 <li>事業改善</li>
                 <li>小規模事業者への伴走支援</li>
@@ -242,6 +259,7 @@
             <article class="stage" data-stage="1" aria-labelledby="st-make">
               <p class="stage__big" aria-hidden="true">MAKE<i>.</i></p>
               <p class="stage__meta"><span>02</span><span>WEB &amp; LP</span><span>作る</span></p>
+              <p class="stage__kicker"><b>作る</b><span>伝わるページをつくる</span></p>
               <h3 class="stage__title" id="st-make"><span class="sr">MAKE. 作る ― Web・LP制作：</span>見た人が、<br>動けるページにする。</h3>
               <p class="stage__text">決まったことを、伝わって、行動につながるWebに変えます。見た目を整えるだけでなく、問い合わせや予約にたどり着くまでの道筋ごと設計します。</p>
               <ul class="stage__list">
@@ -260,6 +278,7 @@
             <article class="stage" data-stage="2" aria-labelledby="st-deliver">
               <p class="stage__big" aria-hidden="true">DELIVER<i>.</i></p>
               <p class="stage__meta"><span>03</span><span>AI CREATIVE</span><span>届ける</span></p>
+              <p class="stage__kicker"><b>届ける</b><span>広告や動画で人に届ける</span></p>
               <h3 class="stage__title" id="st-deliver"><span class="sr">DELIVER. 届ける ― 広告クリエイティブ：</span>撮影の手間を減らして、<br>広告を出せる状態に。</h3>
               <p class="stage__text">SNSや広告で、商品やサービスを人に届けるためのクリエイティブを作ります。AIはそのための道具のひとつ。撮影にかかる時間や費用を抑えながら、実際に出稿できる動画に仕上げます。手元にある写真からの制作にも対応します。</p>
               <ul class="stage__list">
@@ -277,6 +296,7 @@
             <article class="stage" data-stage="3" aria-labelledby="st-sell">
               <p class="stage__big" aria-hidden="true">SELL<i>.</i></p>
               <p class="stage__meta"><span>04</span><span>LIVE COMMERCE CONSULTING</span><span>売る</span></p>
+              <p class="stage__kicker"><b>売る</b><span>売れる仕組みにする</span></p>
               <h3 class="stage__title" id="st-sell"><span class="sr">SELL. 売る ― ライブコマースコンサルティング：</span>ライブ配信を、<br>売れる仕組みにする。</h3>
               <p class="stage__text">ライブ配信を「やってみた」で終わらせず、販売につなげるためのコンサルティングです。何を、誰に、どう売るか。配信の企画と売り方の設計から、導入まで支援します。</p>
               <ul class="stage__list">
@@ -293,12 +313,16 @@
             </article>
 
             <div class="stage stage--end" data-stage="3">
-              <p class="stage__loop-title">売って、終わりじゃない。</p>
-              <p class="stage__text">結果を持って、また「考える」に戻る。この繰り返しで、事業は前に進みます。どこから相談していただいても大丈夫です。ただし、全体を見たうえで、今必要なところから始めます。</p>
-              <a class="btn btn--ink" href="#contact">今の状況を相談する<span class="btn__arrow" aria-hidden="true">→</span></a>
+              <p class="stage__loop-title">4つは、<br class="sp">セットではありません。</p>
+              <p class="stage__text">相談の内容に合わせて、必要な工程だけを組み合わせます。「ページだけ」「広告だけ」の相談も歓迎です。今の事業に効かない工程は、提案しません。</p>
+              <p class="stage__text">売ったあとは、結果を持ってまた「考える」に戻ります。この繰り返しで、事業は前に進みます。</p>
+              <a class="btn btn--ink" href="#contact">事業の相談をする<span class="btn__arrow" aria-hidden="true">→</span></a>
             </div>
           </div>
         </div>
+      </div>
+      <div class="band" data-band>
+        <p class="band__line"><span class="band__a" data-band-a>あれもこれも、</span><span class="band__b" data-band-b>やらなくていい。<em class="band__pen">必要なものだけ、やる。</em></span></p>
       </div>
     </section>
 
@@ -306,7 +330,7 @@
     <section class="why" id="why" aria-labelledby="why-title">
       <div class="wrap why__wrap">
         <div class="why__head">
-          <p class="label label--light">私たちについて</p>
+          <p class="label label--light"><span class="label__n" aria-hidden="true">03</span><span class="label__t">私たちについて</span></p>
           <h2 class="why__title" id="why-title" data-reveal>
             <span class="why__en">Ideas are easy<i>.</i></span>
             正しそうな提案なら、<br>誰でも書けます。
@@ -354,7 +378,7 @@
     <section class="purpose" id="purpose" aria-labelledby="purpose-title">
       <div class="wrap">
         <div class="purpose__top">
-          <p class="label">LP制作 ― PURPOSE</p>
+          <p class="label"><span class="label__n" aria-hidden="true">04</span><span class="label__t">LP制作 ― PURPOSE</span></p>
           <h2 class="purpose__q" id="purpose-title" data-reveal>LPって、<br><span class="purpose__num">30万円</span>も<br class="sp">必要ですか？</h2>
           <p class="purpose__a" data-reveal>安い。でも、<span class="nobr">テンプレじゃない。</span></p>
         </div>
@@ -403,45 +427,82 @@
     <section class="work" id="work" aria-labelledby="work-title">
       <div class="wrap">
         <header class="work__head">
-          <p class="label">プロジェクト</p>
+          <p class="label"><span class="label__n" aria-hidden="true">05</span><span class="label__t">プロジェクト</span></p>
           <h2 class="work__title" id="work-title" data-reveal>自分たちの事業も、<br>同じ流れで動かしています。</h2>
+          <p class="work__lead" data-reveal>Next Re.Liveが企画・制作したLPと、提供しているサービスです。</p>
         </header>
 
-        <ol class="projects">
-          <!-- REPLACE: 実際のPURPOSE LPスクリーンショット（PC/スマホ）が用意できたら .pv--purpose の中を <picture> に差し替え -->
-          <li class="project" id="work-purpose" data-reveal>
-            <div class="pv pv--purpose" aria-hidden="true">
-              <div class="pv__browser">
-                <span class="pv__bar"><i></i><i></i><i></i></span>
-                <div class="pv__screen">
-                  <p class="pv-p__q">LPって、<br>30万円も<br>必要ですか？</p>
-                  <p class="pv-p__price">29,800<small>円〜</small></p>
-                  <p class="pv-p__brand">PURPOSE<i>.</i></p>
-                </div>
+        <ol class="cases">
+          <li class="case" id="work-purpose">
+            <div class="case__stage" style="--stage: #DCD8CE" data-case>
+              <div class="device device--pc">
+                <span class="device__bar" aria-hidden="true"><i></i><i></i><i></i><em>lpstudio298.netlify.app</em></span>
+                <picture><source type="image/webp" srcset="assets/work/purpose-pc-960.webp 960w, assets/work/purpose-pc.webp 1600w" sizes="(min-width: 1024px) 64vw, 86vw"><img src="assets/work/purpose-pc.jpg" width="1600" height="1000" alt="PURPOSEのLPのPC表示。「LPって、30万円も必要ですか？」という大きな見出しと29,800円〜の価格" loading="lazy" decoding="async"></picture>
+              </div>
+              <div class="device device--sp" data-parallax>
+                <picture><source type="image/webp" srcset="assets/work/purpose-sp.webp"><img src="assets/work/purpose-sp.jpg" width="480" height="1038" alt="PURPOSEのLPのスマートフォン表示" loading="lazy" decoding="async"></picture>
               </div>
             </div>
-            <div class="project__txt">
-              <p class="project__meta"><span>01</span><span>LP / WEB DESIGN</span><span class="tag">MAKE.</span></p>
-              <h3 class="project__name">PURPOSE</h3>
-              <p>テンプレートを使わない、完全オリジナルのLP制作サービス。29,800円から。価格で変わるのは品質ではなく、こちらが考える範囲です。</p>
-              <a class="link-under" href="#purpose">PURPOSEについて</a>
+            <div class="case__info">
+              <p class="case__n" aria-hidden="true">01</p>
+              <div class="case__head">
+                <h3 class="case__name">PURPOSE</h3>
+                <p class="case__meta"><span>LP制作サービス（自社）</span><span class="tag">MAKE.</span></p>
+              </div>
+              <div class="case__body">
+                <p>Next Re.LiveのLP制作サービス「PURPOSE」の公式LP。「LPって、30万円も必要ですか？」という問いをそのまま見出しにして、価格と考え方を最初の画面で伝えています。</p>
+                <a class="link-under" href="https://lpstudio298.netlify.app/" target="_blank" rel="noopener">サイトを見る<span class="sr">（新しいタブで開きます）</span> ↗</a>
+              </div>
             </div>
           </li>
-
-          <!-- REPLACE: 「ひとつめ。」のロゴ・ページ画像があれば差し替え -->
-          <li class="project" id="work-hitotsume" data-reveal>
-            <div class="pv pv--hitotsume" aria-hidden="true">
-              <p class="pv-h__word">ひとつめ<i>。</i></p>
-              <p class="pv-h__sub">MARKETING SUPPORT</p>
+          <li class="case" id="work-hitotsume">
+            <div class="case__stage" style="--stage: #E6E5E0" data-case>
+              <div class="device device--pc">
+                <span class="device__bar" aria-hidden="true"><i></i><i></i><i></i><em>hitotsume</em></span>
+                <picture><source type="image/webp" srcset="assets/work/hitotsume-pc-960.webp 960w, assets/work/hitotsume-pc.webp 1600w" sizes="(min-width: 1024px) 64vw, 86vw"><img src="assets/work/hitotsume-pc.jpg" width="1600" height="1000" alt="「ひとつめ。」のLPのPC表示。「そのマーケティング、本当に今必要ですか？」という見出し" loading="lazy" decoding="async"></picture>
+              </div>
+              <div class="device device--sp" data-parallax>
+                <picture><source type="image/webp" srcset="assets/work/hitotsume-sp.webp"><img src="assets/work/hitotsume-sp.jpg" width="480" height="1038" alt="「ひとつめ。」のLPのスマートフォン表示" loading="lazy" decoding="async"></picture>
+              </div>
             </div>
-            <div class="project__txt">
-              <p class="project__meta"><span>02</span><span>MARKETING SUPPORT</span><span class="tag">THINK.</span></p>
-              <h3 class="project__name">ひとつめ。</h3>
-              <p>事業・商品・集客の課題を整理し、今やるべきことを明確にするマーケティング支援。小さな事業の、最初の一歩から伴走します。</p>
-              <a class="link-under" href="#contact" data-topic="marketing">マーケティングの相談をする</a>
+            <div class="case__info">
+              <p class="case__n" aria-hidden="true">02</p>
+              <div class="case__head">
+                <h3 class="case__name case__name--ja">ひとつめ。</h3>
+                <p class="case__meta"><span>マーケティング支援サービス（自社）</span><span class="tag">THINK.</span><span class="tag">MAKE.</span></p>
+              </div>
+              <div class="case__body">
+                <p>マーケティング支援サービス「ひとつめ。」のLP。「そのマーケティング、本当に今必要ですか？」から始まり、今やるべきことをひとつに絞る支援の考え方を、余白の多い構成で伝えています。</p>
+                <a class="link-under" href="https://lpstudio298.netlify.app/works/hitotsume/" target="_blank" rel="noopener">サイトを見る<span class="sr">（新しいタブで開きます）</span> ↗</a>
+              </div>
             </div>
           </li>
+          <li class="case" id="work-milkune">
+            <div class="case__stage" style="--stage: #F2E3D5" data-case>
+              <div class="device device--pc">
+                <span class="device__bar" aria-hidden="true"><i></i><i></i><i></i><em>milkune-stories</em></span>
+                <picture><source type="image/webp" srcset="assets/work/milkune-pc-960.webp 960w, assets/work/milkune-pc.webp 1600w" sizes="(min-width: 1024px) 64vw, 86vw"><img src="assets/work/milkune-pc.jpg" width="1600" height="1000" alt="MILKUNE STORIESのLPのPC表示。空色の背景に「Your pet. Your little dream, brought to life.」の見出し" loading="lazy" decoding="async"></picture>
+              </div>
+              <div class="device device--sp" data-parallax>
+                <video class="device__video" muted playsinline loop preload="none" poster="assets/work/milkune-dance.webp" width="360" height="640" aria-label="MILKUNE STORIESのサンプル動画。犬が踊るAI動画" data-autoplay><source src="assets/work/milkune-dance.mp4" type="video/mp4"></video>
+              </div>
+            </div>
+            <div class="case__info">
+              <p class="case__n" aria-hidden="true">03</p>
+              <div class="case__head">
+                <h3 class="case__name">MILKUNE STORIES</h3>
+                <p class="case__meta"><span>LP制作 ／ AI動画</span><span class="tag">MAKE.</span><span class="tag">DELIVER.</span></p>
+              </div>
+              <div class="case__body">
+                <p>ペット向けAI動画制作サービスのLP（日本語・英語）。サービスの世界観に合わせて、やわらかい色と形で構成しました。右は同サービスのサンプル動画です。</p>
+                <a class="link-under" href="https://lpstudio298.netlify.app/works/milkune/" target="_blank" rel="noopener">サイトを見る<span class="sr">（新しいタブで開きます）</span> ↗</a>
+              </div>
+            </div>
+          </li>
+        </ol>
 
+        <h3 class="projects__sub">ほかのサービスと、このサイト</h3>
+        <ol class="projects">
           <!-- REPLACE: AI広告動画の実制作物（縦型 mp4/webm + poster画像）を .pv__phone 内の <video> に差し替え -->
           <li class="project" id="work-studio" data-reveal>
             <div class="pv pv--studio" aria-hidden="true">
@@ -456,7 +517,7 @@
               </div>
             </div>
             <div class="project__txt">
-              <p class="project__meta"><span>03</span><span>AI CREATIVE</span><span class="tag">DELIVER.</span></p>
+              <p class="project__meta"><span>04</span><span>AI CREATIVE</span><span class="tag">DELIVER.</span></p>
               <h3 class="project__name">Next Re.Live<br>AI AD STUDIO</h3>
               <p>撮影のハードルを下げながら、SNSや広告で実際に使える動画クリエイティブを制作します。縦型ショート、広告動画、手元の写真を活かした動画まで。</p>
               <a class="link-under" href="#contact" data-topic="creative">広告クリエイティブの相談をする</a>
@@ -471,7 +532,7 @@
               <p class="pv-l__sub">LIVE COMMERCE CONSULTING</p>
             </div>
             <div class="project__txt">
-              <p class="project__meta"><span>04</span><span>CONSULTING</span><span class="tag">SELL.</span></p>
+              <p class="project__meta"><span>05</span><span>CONSULTING</span><span class="tag">SELL.</span></p>
               <h3 class="project__name">LIVE COMMERCE<br>CONSULTING</h3>
               <p>ライブ配信を販売につなげるためのコンサルティング。導入の相談から、企画・売り方の設計、活用方法、導入支援まで。</p>
               <a class="link-under" href="#contact" data-topic="live">ライブコマースの相談をする</a>
@@ -489,7 +550,7 @@
               </div>
             </div>
             <div class="project__txt">
-              <p class="project__meta"><span>05</span><span>PURPOSE 制作事例</span><span class="tag">MAKE.</span></p>
+              <p class="project__meta"><span>06</span><span>PURPOSE 制作事例</span><span class="tag">MAKE.</span></p>
               <h3 class="project__name">このサイト</h3>
               <p>いま見ているこのページも、PURPOSEで制作したLPです。デザインはNext Re.Liveのためだけに考えました。</p>
               <ul class="notes">
@@ -508,18 +569,20 @@
     <section class="entry" id="entry" aria-labelledby="entry-title">
       <div class="wrap">
         <header class="entry__head">
-          <p class="label">こんな相談から</p>
+          <p class="label"><span class="label__n" aria-hidden="true">06</span><span class="label__t">こんな相談から</span></p>
           <h2 class="entry__title" id="entry-title" data-reveal>まだ、何も<br class="sp">決まっていなくていい。</h2>
-          <p class="entry__lead" data-reveal>入口はどこでもかまいません。話をうかがって、どの工程から始めるのがいいかを一緒に決めます。</p>
+          <p class="entry__lead" data-reveal>入口はどこでもかまいません。話をうかがって、4つの工程から必要なものだけを組み合わせます。全部を頼む必要はありません。</p>
         </header>
         <ul class="voices">
-          <li data-reveal><q>商品はある。でも、売り方がわからない。</q><span class="voices__at" data-at="0">THINK から</span></li>
-          <li data-reveal><q>ホームページはあるのに、問い合わせが来ない。</q><span class="voices__at" data-at="0">THINK から</span></li>
-          <li data-reveal><q>SNS、何を投稿すればいいのかわからない。</q><span class="voices__at" data-at="0">THINK から</span></li>
-          <li data-reveal><q>新しいサービスを始める。告知のページがほしい。</q><span class="voices__at" data-at="1">MAKE から</span></li>
-          <li data-reveal><q>広告を出したい。でも、撮影する時間も予算もない。</q><span class="voices__at" data-at="2">DELIVER から</span></li>
-          <li data-reveal><q>ライブ配信で本当に売れるのか、始める前に知りたい。</q><span class="voices__at" data-at="3">SELL から</span></li>
+          <li data-reveal><q>商品はある。でも、売り方がわからない。</q><span class="combo" aria-label="使う工程：THINK・MAKE"><i class="is-use">THINK</i><i class="is-use">MAKE</i><i class="is-skip">DELIVER</i><i class="is-skip">SELL</i></span></li>
+          <li data-reveal><q>ホームページはあるのに、問い合わせが来ない。</q><span class="combo" aria-label="使う工程：THINK・MAKE"><i class="is-use">THINK</i><i class="is-use">MAKE</i><i class="is-skip">DELIVER</i><i class="is-skip">SELL</i></span></li>
+          <li data-reveal><q>SNS、何を投稿すればいいのかわからない。</q><span class="combo" aria-label="使う工程：THINK・DELIVER"><i class="is-use">THINK</i><i class="is-skip">MAKE</i><i class="is-use">DELIVER</i><i class="is-skip">SELL</i></span></li>
+          <li data-reveal><q>新しいサービスを始める。告知のページがほしい。</q><span class="combo" aria-label="使う工程：MAKE"><i class="is-skip">THINK</i><i class="is-use">MAKE</i><i class="is-skip">DELIVER</i><i class="is-skip">SELL</i></span></li>
+          <li data-reveal><q>広告を出したい。でも、撮影する時間も予算もない。</q><span class="combo" aria-label="使う工程：DELIVER"><i class="is-skip">THINK</i><i class="is-skip">MAKE</i><i class="is-use">DELIVER</i><i class="is-skip">SELL</i></span></li>
+          <li data-reveal><q>ライブ配信で本当に売れるのか、始める前に知りたい。</q><span class="combo" aria-label="使う工程：THINK・SELL"><i class="is-use">THINK</i><i class="is-skip">MAKE</i><i class="is-skip">DELIVER</i><i class="is-use">SELL</i></span></li>
+          <li data-reveal><q>何から手をつければいいのか、そこから相談したい。</q><span class="combo" aria-label="使う工程：THINK"><i class="is-use">THINK</i><i class="is-skip">MAKE</i><i class="is-skip">DELIVER</i><i class="is-skip">SELL</i></span></li>
         </ul>
+        <p class="voices__note">組み合わせは一例です。赤線を引いた工程は、その相談では使いません。</p>
 
         <div class="steps">
           <h3 class="steps__title">相談の流れ</h3>
@@ -531,6 +594,11 @@
             <li><b>05</b><span>実行と改善</span><small>作って、届けて、売って、見直す。</small></li>
           </ol>
         </div>
+
+        <div class="entry__cta" data-reveal>
+          <p class="entry__cta-text">何を頼めばいいか、<br class="sp">わからなくても大丈夫です。</p>
+          <a class="btn btn--red" href="#contact">事業の相談をする<span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
 
@@ -538,7 +606,7 @@
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact__wrap">
         <div class="contact__head">
-          <p class="label label--light">お問い合わせ</p>
+          <p class="label label--light"><span class="label__n" aria-hidden="true">07</span><span class="label__t">お問い合わせ</span></p>
           <h2 class="contact__title" id="contact-title">そのアイデア、<br>動かしましょう。</h2>
           <p class="contact__lead">「何を相談すればいいかわからない」も、立派な相談内容です。今の状況を、そのまま書いてください。</p>
           <div class="contact__mail">
@@ -572,11 +640,11 @@
           <fieldset class="field field--topics" aria-describedby="f-topic-err">
             <legend>ご相談の内容<span class="req">必須</span></legend>
             <div class="topics">
-              <label><input type="radio" name="topic" value="事業・マーケティングの相談" data-topic-key="marketing" required><span><i>THINK</i>事業・マーケティング</span></label>
+              <label class="topics__wide"><input type="radio" name="topic" value="まだ決まっていない・おまかせで相談したい" data-topic-key="other" required><span><i>まだ決まっていない</i>何を頼めばいいか、そこから相談したい</span></label>
+              <label><input type="radio" name="topic" value="事業・マーケティングの相談" data-topic-key="marketing"><span><i>THINK</i>事業・マーケティング</span></label>
               <label><input type="radio" name="topic" value="LP・Web制作（PURPOSE）" data-topic-key="lp"><span><i>MAKE</i>LP・Web制作（PURPOSE）</span></label>
               <label><input type="radio" name="topic" value="広告動画・SNSクリエイティブ" data-topic-key="creative"><span><i>DELIVER</i>広告動画・SNSクリエイティブ</span></label>
               <label><input type="radio" name="topic" value="ライブコマース" data-topic-key="live"><span><i>SELL</i>ライブコマース</span></label>
-              <label class="topics__wide"><input type="radio" name="topic" value="まだ決まっていない・その他" data-topic-key="other"><span><i>?</i>まだ決まっていない・その他</span></label>
             </div>
             <p class="field__err" id="f-topic-err"></p>
           </fieldset>
@@ -598,7 +666,7 @@
     <section class="company" id="company" aria-labelledby="company-title">
       <div class="wrap company__wrap">
         <div>
-          <p class="label">会社概要</p>
+          <p class="label"><span class="label__n" aria-hidden="true">08</span><span class="label__t">会社概要</span></p>
           <h2 class="company__title" id="company-title">愛媛・内子から、<br>事業を前に進める。</h2>
         </div>
         <dl class="company__dl">
