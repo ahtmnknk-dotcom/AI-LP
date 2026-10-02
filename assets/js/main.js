@@ -269,31 +269,36 @@
       if (field.type !== 'radio') field.setAttribute('aria-invalid', msg ? 'true' : 'false');
     }
 
+    // returns an error message for one field ('' when fine)
+    function fieldError(el) {
+      if (el.name === 'topic') return $('input[name="topic"]:checked', form) ? '' : messages.topic;
+      if (el.name === 'email') {
+        if (!el.value.trim()) return messages.email;
+        return el.validity.typeMismatch ? messages.emailFormat : '';
+      }
+      if (messages[el.name]) return el.value.trim() ? '' : messages[el.name];
+      return '';
+    }
+
     function validate() {
       var firstBad = null;
-      var name = form.elements.name;
-      var email = form.elements.email;
-      var message = form.elements.message;
-      var topicChecked = $('input[name="topic"]:checked', form);
-      var topicFirst = $('input[name="topic"]', form);
-
-      var check = function (el, msg) {
+      [form.elements.name, form.elements.email, $('input[name="topic"]', form), form.elements.message].forEach(function (el) {
+        var msg = fieldError(el);
         setError(el, msg);
         if (msg && !firstBad) firstBad = el;
-      };
-      check(name, name.value.trim() ? '' : messages.name);
-      if (!email.value.trim()) check(email, messages.email);
-      else check(email, email.validity.typeMismatch ? messages.emailFormat : '');
-      check(topicFirst, topicChecked ? '' : messages.topic);
-      check(message, message.value.trim() ? '' : messages.message);
+      });
       return firstBad;
     }
 
+    // once a field shows an error, re-check only that field while the user fixes it
+    // (re-validating everything on blur shifts the layout under the user's finger)
     $$('input, textarea', form).forEach(function (el) {
-      var evt = el.type === 'radio' ? 'change' : 'blur';
+      var evt = el.type === 'radio' ? 'change' : 'input';
       el.addEventListener(evt, function () {
         var wrap = el.closest('.field');
-        if (wrap && wrap.classList.contains('is-error')) validate();
+        if (wrap && wrap.classList.contains('is-error')) {
+          setError(el.type === 'radio' ? $('input[name="topic"]', form) : el, fieldError(el));
+        }
       });
     });
 
