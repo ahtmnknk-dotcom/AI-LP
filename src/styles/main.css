@@ -691,6 +691,7 @@ h1, h2, h3, h4, .hero__voice, .cases__text, .concept__advanced-list, .plan__copy
   display: grid; gap: 8px;
   padding: 24px; border-left: 3px solid var(--accent); background: var(--surface);
 }
+.callout + .callout { margin-top: 16px; }
 .callout__label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); }
 .callout__text { font-size: clamp(1rem, 2.6vw, 1.2rem); font-weight: 500; line-height: 1.8; }
 .callout__text strong { font-weight: 700; background: linear-gradient(transparent 62%, var(--accent-soft) 62%); }

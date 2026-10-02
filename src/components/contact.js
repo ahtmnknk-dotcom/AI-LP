@@ -41,6 +41,9 @@ export const Contact = ({ site }) => html`
             site.form.provider === 'netlify' ? html` data-netlify="true" netlify-honeypot="_gotcha"` : ''
           }>
           ${site.form.provider === 'netlify' ? html`<input type="hidden" name="form-name" value="${site.form.name}">` : ''}
+          ${site.form.provider === 'endpoint'
+            ? Object.entries(site.form.fields || {}).filter(([, value]) => value).map(([name, value]) => html`<input type="hidden" name="${name}" value="${value}">`)
+            : ''}
           ${field({
             id: 'f-name',
             label: 'お名前',

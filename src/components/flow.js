@@ -32,5 +32,14 @@ export const Flow = () => html`
           納期は、<strong>制作に必要な素材・情報がすべて揃った時点</strong>から起算します。
         </p>
       </aside>
+
+      <aside class="callout" data-reveal aria-label="お支払いについて">
+        <p class="callout__label">お支払いについて</p>
+        <p class="callout__text">
+          LP完成後、最終デザインをご確認いただいた後に請求書を発行いたします。<br>
+          請求書発行日より<strong>3日以内</strong>にお支払いください。<br>
+          ご入金確認後、本番環境への公開・納品を行います。
+        </p>
+      </aside>
     </div>
   </section>`;

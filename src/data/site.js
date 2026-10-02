@@ -8,7 +8,7 @@ export const site = {
   tagline: 'Original LP Design Studio',
 
   /** 本番URL（末尾スラッシュあり）。canonical / OGP / 構造化データに使用 */
-  url: 'https://example.com/',
+  url: 'https://lpstudio298.netlify.app/',
 
   lang: 'ja',
   locale: 'ja_JP',
@@ -43,15 +43,23 @@ export const site = {
 
   /**
    * お問い合わせフォーム。
-   * provider: 'netlify' … Netlify Forms で受信（Netlifyで公開したときのみ動作）
-   *           'endpoint' … Formspree など外部の受付URL（endpoint に指定）へ送信
+   * provider: 'netlify'  … Netlify Forms で受信（Netlifyで公開したときのみ動作）。
+   *                        通知メールは Netlify 管理画面 → Forms → Form notifications で設定。
+   *           'endpoint' … 外部の受付URL（endpoint）へ送信。fields は hidden で一緒に送る値。
+   *                        例：Web3Forms は endpoint を 'https://api.web3forms.com/submit'、fields.access_key に Access Key。
    *           ''         … デモモード（送信せず完了画面のみ表示）
    * localhost やプレビュー表示では、実際には送信せずデモモードで動作します。
    */
   form: {
     provider: 'netlify',
     name: 'contact',
-    endpoint: '',
+    // provider: 'endpoint' に切り替えたときに使用（Web3Forms 設定済み）
+    endpoint: 'https://api.web3forms.com/submit',
+    fields: {
+      access_key: 'caee9eb0-053e-4496-abbf-e4e34af38398',
+      subject: '【PURPOSE】LPから新しいお問い合わせが届きました',
+      from_name: 'PURPOSE 公式LP',
+    },
   },
 
   /** SNSなど（フッター・構造化データ sameAs に使用） */

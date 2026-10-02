@@ -201,7 +201,8 @@
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
       } else {
         const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || json.success === false) throw new Error(json.message || `HTTP ${res.status}`);
       }
       $('[data-done-email]', done).textContent = data.get('email');
       form.hidden = true;

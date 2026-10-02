@@ -23,13 +23,12 @@ export const works = [
     stage: { bg: '#E6E5E0', ink: '#111110' },
     images: {
       pc: {
-        src: 'assets/works/hitotsume-pc.svg',
+        src: 'assets/works/hitotsume-pc.jpg',
         width: 1600,
         height: 1000,
         alt: '「ひとつめ。」LPのPC表示。白を基調に大きな文字で構成されたファーストビュー',
       },
-      sp: null,
-      // sp: { src: 'assets/works/hitotsume-sp.webp', width: 780, height: 1688, alt: '「ひとつめ。」LPのスマートフォン表示' },
+      sp: { src: 'assets/works/hitotsume-sp.jpg', width: 780, height: 1688, alt: '「ひとつめ。」LPのスマートフォン表示' },
     },
   },
   {
@@ -41,17 +40,17 @@ export const works = [
       '柔らかく遊び心のあるデザイン。',
       '海外ユーザーも想定した多言語LP。',
     ],
-    url: '',
+    url: 'works/milkune/index.html',
     displayUrl: 'milkune-stories',
     stage: { bg: '#F2E3D5', ink: '#2A1D14' },
     images: {
       pc: {
-        src: 'assets/works/milkune-pc.svg',
+        src: 'assets/works/milkune-pc.jpg',
         width: 1600,
         height: 1000,
         alt: 'MILKUNE STORIESのLPのPC表示。柔らかな色使いと丸みのある形で構成されたファーストビュー',
       },
-      sp: null,
+      sp: { src: 'assets/works/milkune-sp.jpg', width: 780, height: 1688, alt: 'MILKUNE STORIESのLPのスマートフォン表示' },
     },
   },
 ];
