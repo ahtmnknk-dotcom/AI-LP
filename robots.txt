@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ahtmnknk-dotcom.github.io/AI-LP/sitemap.xml
