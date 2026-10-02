@@ -8,8 +8,8 @@ npm run build     # dist/ を生成
 npm run dev       # ビルドして http://localhost:4173 で確認
 ```
 
-`dist/` の中身をそのまま Netlify / Vercel / Cloudflare Pages / GitHub Pages などにアップロードすれば公開できます
-（ビルドコマンド `npm run build`、公開ディレクトリ `dist`）。
+Netlify で公開する前提です（`netlify.toml` 設定済み：ビルドコマンド `npm run build`、公開ディレクトリ `dist`）。
+GitHubリポジトリをNetlifyに接続すれば、pushのたびに自動で公開されます。
 
 ---
 
@@ -18,9 +18,9 @@ npm run dev       # ビルドして http://localhost:4173 で確認
 | 項目 | 場所 | 内容 |
 | --- | --- | --- |
 | 本番URL | `src/data/site.js` → `url` | canonical / OGP / 構造化データ / sitemap に使用。現在は `https://example.com/` |
-| 問い合わせ送信先 | `src/data/site.js` → `form.endpoint` | Formspree などのURL。**未設定の間はデモモード**（送信されず、完了画面に注記が出ます） |
+| 問い合わせの通知先 | Netlify管理画面 → Forms | フォームは Netlify Forms（`form.provider: 'netlify'`）。デプロイ後、Netlify の **Forms → Form notifications** で受信メールを設定。localhost・プレビューでは送信されません |
 | 制作事例の画像 | `public/assets/works/` | 現在は仮画像（SVG）。実際のスクリーンショットに差し替え、`src/data/works.js` のパスを変更 |
-| 制作事例のURL | `src/data/works.js` → `url` | 空の間は「VIEW PROJECT / Coming soon」表示 |
+| 制作事例のURL | `src/data/works.js` → `url` | ひとつめ。は設定済み。MILKUNE STORIES は未設定（空の間は「Coming soon」表示） |
 | ブランド名 | `src/data/site.js` → `name` | 仮で `PURPOSE`。OGP画像（`public/assets/ogp.png`）・favicon も合わせて差し替え |
 | 価格の税表記 | `src/data/site.js` → `priceNote` | 例：`表示価格はすべて税込です。`（料金欄の注記に表示） |
 | X(Twitter) / SNS | `src/data/site.js` → `seo.twitter` / `social` | 任意 |

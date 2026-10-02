@@ -42,11 +42,15 @@ export const site = {
   ],
 
   /**
-   * お問い合わせフォームの送信先。
-   * Formspree / Getform / 自前API など、FormData を POST で受け取れるエンドポイントを指定。
-   * 空文字のままだとデモモード（送信せず完了画面のみ表示）で動作します。
+   * お問い合わせフォーム。
+   * provider: 'netlify' … Netlify Forms で受信（Netlifyで公開したときのみ動作）
+   *           'endpoint' … Formspree など外部の受付URL（endpoint に指定）へ送信
+   *           ''         … デモモード（送信せず完了画面のみ表示）
+   * localhost やプレビュー表示では、実際には送信せずデモモードで動作します。
    */
   form: {
+    provider: 'netlify',
+    name: 'contact',
     endpoint: '',
   },
 

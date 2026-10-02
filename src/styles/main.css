@@ -470,6 +470,7 @@ h1, h2, h3, h4, .hero__voice, .cases__text, .concept__advanced-list, .plan__copy
 }
 .device--sp .device__screen { overflow: hidden; border-radius: clamp(10px, 2vw, 28px); }
 .work:hover .device--pc { transform: translateY(-6px); }
+.work__stage-link { position: absolute; inset: 0; z-index: 3; cursor: pointer; }
 
 .work__meta { display: grid; gap: 14px; }
 .work__index { font-family: var(--font-display); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: 0.08em; }

@@ -133,7 +133,10 @@
   const status = $('[data-status]', form);
   const submit = $('[data-submit]', form);
   const submitLabel = $('[data-submit-label]', form);
-  const endpoint = form.dataset.endpoint;
+  const { provider, endpoint } = form.dataset;
+  // ローカル確認やプレビュー（iframe内表示）では送信しない
+  const isPreview = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) || window.self !== window.top;
+  const demo = isPreview || !provider || (provider === 'endpoint' && !endpoint);
 
   const messages = {
     name: 'お名前を入力してください。',
@@ -185,13 +188,20 @@
     submitLabel.textContent = '送信中…';
 
     try {
-      if (endpoint) {
-        const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (demo) {
+        console.info('[contact] demo mode — not sent.', Object.fromEntries(data));
+        await new Promise((r) => setTimeout(r, 700));
+        $('[data-demo-note]', done).hidden = false;
+      } else if (provider === 'netlify') {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data).toString(),
+        });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
       } else {
-        // デモモード: site.form.endpoint が未設定のため実際には送信していません
-        console.info('[contact] demo mode — set site.form.endpoint to receive submissions.', Object.fromEntries(data));
-        await new Promise((r) => setTimeout(r, 700));
+        const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
       }
       $('[data-done-email]', done).textContent = data.get('email');
       form.hidden = true;

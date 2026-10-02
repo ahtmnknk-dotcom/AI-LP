@@ -7,6 +7,9 @@ const Work = (work, index, total) => {
   return html`
   <article class="work${hasSp ? ' work--has-sp' : ''}" style="--stage:${work.stage.bg};--stage-ink:${work.stage.ink}" aria-labelledby="work-${work.id}">
     <div class="work__stage" data-reveal>
+      ${work.url
+        ? html`<a class="work__stage-link" href="${work.url}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"></a>`
+        : ''}
       <figure class="device device--pc">
         <div class="device__bar" aria-hidden="true">
           <span class="device__dots"><i></i><i></i><i></i></span>

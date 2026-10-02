@@ -35,7 +35,12 @@ export const Contact = ({ site }) => html`
       </div>
 
       <div class="contact__panel" data-reveal>
-        <form class="form" data-form action="${site.form.endpoint || '#contact'}" method="post" novalidate data-endpoint="${site.form.endpoint}">
+        <form class="form" data-form name="${site.form.name}" method="post" novalidate
+          action="${site.form.provider === 'endpoint' ? site.form.endpoint : '/'}"
+          data-provider="${site.form.provider}" data-endpoint="${site.form.endpoint}"${
+            site.form.provider === 'netlify' ? html` data-netlify="true" netlify-honeypot="_gotcha"` : ''
+          }>
+          ${site.form.provider === 'netlify' ? html`<input type="hidden" name="form-name" value="${site.form.name}">` : ''}
           ${field({
             id: 'f-name',
             label: 'お名前',
@@ -101,7 +106,7 @@ export const Contact = ({ site }) => html`
           </p>
           <p class="form-done__email" data-done-email></p>
           <p class="form-done__sub">しばらく経っても返信が届かない場合は、迷惑メールフォルダをご確認ください。</p>
-          ${site.form.endpoint ? '' : html`<p class="form-done__demo">※ デモモード：送信先（src/data/site.js の form.endpoint）が未設定のため、実際には送信されていません。</p>`}
+          <p class="form-done__demo" data-demo-note hidden>※ プレビュー表示のため、実際には送信されていません。</p>
           <a class="link-cta" href="#top"><span>トップへ戻る</span>${arrow}</a>
         </div>
       </div>

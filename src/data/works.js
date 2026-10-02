@@ -18,8 +18,8 @@ export const works = [
       'ミニマルな構成と大胆なタイポグラフィで、',
       'サービスの考え方をシンプルかつ印象的に伝えるLP。',
     ],
-    url: '',
-    displayUrl: 'hitotsume',
+    url: 'https://hitotsume-marketing.netlify.app/',
+    displayUrl: 'hitotsume-marketing.netlify.app',
     stage: { bg: '#E6E5E0', ink: '#111110' },
     images: {
       pc: {
