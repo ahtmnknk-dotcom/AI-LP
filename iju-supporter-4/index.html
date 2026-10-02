@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>移住サポーター養成講座 第4期｜Design Proposal</title>
+<meta name="description" content="人と、まちと、住まいをつなぐ。6ヶ月・少人数制の「移住サポーター養成講座」第4期（非公式デザイン提案デモ）">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f3ec;
+  --paper-2:#efeadf;
+  --ink:#2b2a27;
+  --ink-soft:#5d5a53;
+  --line:#d9d2c3;
+  --olive:#4f5a3c;
+  --olive-deep:#3a4330;
+  --beige:#d8c7a6;
+  --clay:#a8744f;
+  --white:#fffdf8;
+  --serif:"Noto Serif JP",serif;
+  --sans:"Noto Sans JP",system-ui,sans-serif;
+  --en:"Cormorant Garamond",serif;
+  --gutter:20px;
+  --max:1120px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.95;letter-spacing:.04em;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0 0 1.2em}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:.06em;margin:0}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.en{font-family:var(--en);letter-spacing:.08em}
+.sec{padding:96px 0}
+.sec--tint{background:var(--paper-2)}
+.sec--dark{background:var(--olive-deep);color:#ece7da}
+
+/* section label */
+.label{display:flex;align-items:center;gap:14px;font-family:var(--en);font-size:15px;letter-spacing:.2em;color:var(--olive);margin-bottom:22px;text-transform:uppercase}
+.label b{font-weight:600}
+.label::after{content:"";flex:0 0 48px;height:1px;background:currentColor;opacity:.5}
+.sec--dark .label{color:var(--beige)}
+.h2{font-size:clamp(25px,6.4vw,40px);line-height:1.6;margin-bottom:28px}
+.lead{font-size:17px;color:var(--ink-soft)}
+
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px var(--gutter);transition:background .4s,box-shadow .4s}
+.hd.is-scrolled{background:rgba(246,243,236,.92);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line)}
+.hd__logo{font-family:var(--en);font-size:17px;letter-spacing:.12em;text-decoration:none;line-height:1.2}
+.hd__logo small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.16em;color:var(--ink-soft)}
+.hd__cta{font-size:13px;text-decoration:none;border:1px solid var(--ink);padding:8px 16px;border-radius:999px;letter-spacing:.08em;transition:background .3s,color .3s}
+.hd__cta:hover{background:var(--ink);color:var(--paper)}
+
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:112px 0 56px;position:relative;overflow:hidden}
+.hero__bg{position:absolute;inset:0;pointer-events:none}
+.hero__bg svg{position:absolute;right:-18%;top:12%;width:min(92vw,620px);height:auto;opacity:.9}
+.hero__inner{position:relative}
+.hero__kicker{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.14em;color:var(--olive);margin-bottom:28px}
+.hero__kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--clay)}
+.hero__en{font-family:var(--en);font-style:italic;font-size:clamp(17px,4.4vw,22px);color:var(--clay);letter-spacing:.06em;margin-bottom:16px}
+.hero__title{font-size:clamp(34px,9.6vw,68px);line-height:1.45;letter-spacing:.08em}
+.hero__title span{display:block}
+.hero__sub{margin-top:28px;font-size:16px;color:var(--ink-soft);max-width:30em}
+.hero__name{margin-top:36px;display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;padding-top:22px;border-top:1px solid var(--line)}
+.hero__name strong{font-family:var(--serif);font-size:clamp(20px,5.4vw,26px);letter-spacing:.1em}
+.hero__name em{font-style:normal;font-family:var(--serif);font-size:16px;color:var(--olive);border:1px solid var(--olive);padding:2px 12px;border-radius:999px;letter-spacing:.1em}
+.facts{margin:26px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.facts div{background:var(--paper);padding:14px 14px 12px}
+.facts dt{font-family:var(--en);font-size:12px;letter-spacing:.18em;color:var(--olive);text-transform:uppercase;line-height:1.4}
+.facts dd{margin:4px 0 0;font-size:15px;font-weight:500;line-height:1.5}
+.facts dd small{display:block;font-size:11px;color:var(--ink-soft);font-weight:400}
+.hero__ctas{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 28px;border-radius:999px;font-size:15px;font-weight:500;letter-spacing:.08em;text-decoration:none;transition:background .3s,color .3s,transform .3s}
+.btn svg{width:16px;height:16px;transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+.btn--primary{background:var(--olive-deep);color:var(--white)}
+.btn--primary:hover{background:var(--ink)}
+.btn--ghost{border:1px solid var(--ink);color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:var(--paper)}
+.btn--light{background:var(--paper);color:var(--olive-deep)}
+.btn--light:hover{background:var(--beige)}
+
+/* why */
+.why__grid{display:grid;gap:40px}
+.quote{font-family:var(--serif);font-size:clamp(19px,5vw,24px);line-height:1.9;padding-left:22px;border-left:2px solid var(--clay);margin:8px 0 0}
+.fromto{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:36px 0 8px}
+.fromto div{border:1px solid var(--line);background:var(--white);padding:18px 14px;text-align:center;font-size:14px;line-height:1.7}
+.fromto div b{display:block;font-family:var(--en);font-size:13px;font-weight:600;letter-spacing:.16em;color:var(--olive)}
+.fromto i{font-style:normal;color:var(--clay);font-size:20px}
+
+/* what */
+.equation{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;margin:40px 0;padding:34px 18px;border-top:1px solid rgba(236,231,218,.25);border-bottom:1px solid rgba(236,231,218,.25);text-align:center}
+.equation span{font-family:var(--serif);font-size:clamp(19px,5vw,26px)}
+.equation small{display:block;font-family:var(--en);font-size:12px;letter-spacing:.2em;color:var(--beige);text-transform:uppercase}
+.equation .x{font-family:var(--en);font-size:30px;color:var(--beige)}
+.connect{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:8px}
+.connect div{text-align:center;padding:20px 6px;border:1px solid rgba(236,231,218,.25);border-radius:999px 999px 8px 8px}
+.connect b{display:block;font-family:var(--serif);font-size:17px;font-weight:500}
+.connect small{font-family:var(--en);font-size:12px;letter-spacing:.16em;color:var(--beige)}
+.sec--dark p{color:#d9d3c4}
+
+/* for whom */
+.who{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.who li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--white);border:1px solid var(--line);padding:22px 20px;border-radius:4px}
+.who .no{font-family:var(--en);font-size:26px;color:var(--clay);line-height:1.2}
+.who p{margin:0;font-size:16px;line-height:1.85}
+.who p strong{font-family:var(--serif);font-weight:600;display:block;font-size:17px;margin-bottom:4px}
+.note-small{font-size:13px;color:var(--ink-soft);margin-top:20px}
+
+/* learn */
+.themes{display:grid;gap:0;border-top:1px solid var(--line)}
+.theme{display:grid;grid-template-columns:56px 1fr;gap:6px 16px;padding:28px 0;border-bottom:1px solid var(--line)}
+.theme__no{font-family:var(--en);font-size:40px;line-height:1;color:var(--olive)}
+.theme__tag{font-family:var(--en);font-size:12px;letter-spacing:.18em;color:var(--clay);text-transform:uppercase;margin-bottom:4px}
+.theme h3{font-size:19px;line-height:1.6;margin-bottom:10px}
+.theme p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.9}
+.theme--wide{position:relative}
+.theme .badge{display:inline-block;font-size:11px;letter-spacing:.1em;border:1px solid var(--clay);color:var(--clay);padding:1px 10px;border-radius:999px;margin-left:6px;vertical-align:2px;font-family:var(--sans)}
+
+/* program */
+.flow{list-style:none;margin:0;padding:0;position:relative}
+.flow::before{content:"";position:absolute;left:11px;top:10px;bottom:10px;width:1px;background:var(--line)}
+.flow li{position:relative;padding:0 0 34px 44px}
+.flow li:last-child{padding-bottom:0}
+.flow li::before{content:"";position:absolute;left:5px;top:9px;width:13px;height:13px;border-radius:50%;background:var(--paper-2);border:1px solid var(--olive)}
+.flow li.is-main::before{background:var(--olive);box-shadow:0 0 0 5px rgba(79,90,60,.15)}
+.flow .step{font-family:var(--en);font-size:13px;letter-spacing:.2em;color:var(--olive);text-transform:uppercase}
+.flow h3{font-size:19px;margin:2px 0 8px}
+.flow p{margin:0;font-size:15px;color:var(--ink-soft)}
+.mini{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.mini span{font-size:13px;background:var(--white);border:1px solid var(--line);padding:4px 12px;border-radius:999px}
+
+/* support */
+.cards{display:grid;gap:14px}
+.card{background:var(--white);border:1px solid var(--line);padding:28px 24px;border-radius:4px;position:relative}
+.card__tag{font-family:var(--en);font-size:12px;letter-spacing:.18em;color:var(--clay);text-transform:uppercase}
+.card h3{font-size:19px;line-height:1.6;margin:6px 0 12px}
+.card p{margin:0;font-size:15px;color:var(--ink-soft)}
+.card .value{display:flex;align-items:baseline;gap:8px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink-soft)}
+.card .value b{font-family:var(--serif);font-size:20px;color:var(--olive-deep)}
+
+/* about */
+.about{display:grid;gap:36px}
+.portrait{aspect-ratio:4/5;background:var(--paper-2);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;position:relative;overflow:hidden;max-width:420px}
+.portrait svg{position:absolute;inset:0;width:100%;height:100%}
+.portrait p{position:relative;margin:0;font-family:var(--en);font-size:13px;letter-spacing:.16em;color:var(--ink-soft)}
+.about__role{font-size:13px;letter-spacing:.12em;color:var(--olive)}
+.about__name{font-size:clamp(28px,7vw,36px);letter-spacing:.14em;margin:6px 0 2px}
+.about__en{font-family:var(--en);font-size:16px;letter-spacing:.16em;color:var(--ink-soft);margin-bottom:26px}
+.career{list-style:none;padding:0;margin:26px 0 0;border-top:1px solid var(--line)}
+.career li{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.75}
+.career li span{font-family:var(--en);font-size:15px;color:var(--olive);letter-spacing:.06em}
+.area{margin-top:24px;font-size:14px;color:var(--ink-soft)}
+
+/* info */
+.info{background:var(--white);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.info__head{background:var(--olive-deep);color:var(--paper);padding:26px 22px}
+.info__head .en{font-size:13px;letter-spacing:.2em;color:var(--beige)}
+.info__head h3{font-size:clamp(20px,5.4vw,26px);margin-top:4px}
+.info dl{margin:0}
+.info .row{display:grid;grid-template-columns:1fr;gap:4px;padding:18px 22px;border-top:1px solid var(--line)}
+.info .row:first-child{border-top:0}
+.info dt{font-size:13px;color:var(--olive);letter-spacing:.12em;font-weight:500}
+.info dd{margin:0;font-size:16px;line-height:1.8}
+.price{font-family:var(--serif);font-size:30px;letter-spacing:.04em}
+.price small{font-family:var(--sans);font-size:13px;margin-left:4px;color:var(--ink-soft)}
+.split{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.split div{border:1px solid var(--line);padding:10px 6px;text-align:center;font-size:12px;line-height:1.5;color:var(--ink-soft)}
+.split b{display:block;font-size:15px;color:var(--ink);font-weight:500}
+.info .caution{font-size:13px;color:var(--ink-soft);margin-top:6px}
+
+/* final */
+.final{text-align:left}
+.final__copy{font-size:clamp(22px,6vw,34px);line-height:1.8;margin-bottom:30px}
+.final p{max-width:34em}
+.cta-final{padding:96px 0 110px;text-align:center;background:var(--olive-deep);color:var(--paper);position:relative;overflow:hidden}
+.cta-final .en{font-style:italic;color:var(--beige);font-size:20px}
+.cta-final h2{font-size:clamp(26px,7.4vw,44px);line-height:1.6;margin:14px 0 18px}
+.cta-final .name{font-size:15px;letter-spacing:.14em;color:#d9d3c4;margin-bottom:34px}
+.cta-final .btns{display:flex;flex-direction:column;align-items:center;gap:14px}
+.cta-final .sub{font-size:13px;color:#cfc8b8;margin-top:22px}
+.cta-final .btn--line{border:1px solid rgba(246,243,236,.5);color:var(--paper)}
+.cta-final .btn--line:hover{background:rgba(246,243,236,.1)}
+
+/* footer */
+.ft{padding:44px 0 110px;background:var(--ink);color:#b9b4a8;font-size:12px;line-height:1.9}
+.ft .demo{font-family:var(--en);letter-spacing:.24em;font-size:13px;color:#e6e0d2;margin-bottom:8px}
+.ft p{margin:0 0 .4em}
+.ft .src{margin-top:18px;opacity:.8}
+.ft a{color:#e6e0d2}
+
+/* sticky mobile cta */
+.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(43,42,39,.94);backdrop-filter:blur(6px);color:var(--paper);border-radius:999px;padding:8px 8px 8px 20px;transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.sticky.is-show{transform:none}
+.sticky__txt{font-size:12px;line-height:1.4;letter-spacing:.06em}
+.sticky__txt b{display:block;font-size:13px;font-weight:500}
+.sticky a{flex:none;background:var(--paper);color:var(--ink);text-decoration:none;font-size:13px;font-weight:500;padding:10px 18px;border-radius:999px}
+
+/* motion */
+.rv{opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.is-in{opacity:1;transform:none}
+.hero .rv{transition-delay:calc(var(--d,0) * 120ms)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ≥ tablet */
+@media (min-width:760px){
+  :root{--gutter:40px}
+  .sec{padding:140px 0}
+  .facts{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .why__grid{grid-template-columns:1fr 1.15fr;gap:72px;align-items:start}
+  .who{grid-template-columns:repeat(3,1fr)}
+  .who li{grid-template-columns:1fr;padding:30px 26px}
+  .themes{grid-template-columns:1fr 1fr;column-gap:56px;border-top:0}
+  .theme{grid-template-columns:64px 1fr;border-top:1px solid var(--line);border-bottom:0}
+  .theme--wide{grid-column:span 2}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .about{grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
+  .info .row{grid-template-columns:150px 1fr;gap:20px;padding:22px 32px}
+  .info__head{padding:32px}
+  .cta-final .btns{flex-direction:row;justify-content:center}
+  .sticky{display:none}
+  .ft{padding-bottom:48px}
+  .split{max-width:420px}
+}
+@media (min-width:1024px){
+  .hero__bg svg{right:-4%;top:14%}
+  .hero__title{font-size:64px}
+  .program-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px}
+}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <a class="hd__logo" href="#top">IJU SUPPORTER<small>移住サポーター養成講座</small></a>
+  <a class="hd__cta" href="#info">募集概要</a>
+</header>
+
+<main id="top">
+
+<!-- 01 HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__bg" aria-hidden="true">
+    <svg viewBox="0 0 600 600" fill="none">
+      <circle cx="210" cy="300" r="170" stroke="#4f5a3c" stroke-opacity=".28"/>
+      <circle cx="390" cy="300" r="170" stroke="#a8744f" stroke-opacity=".32"/>
+      <circle cx="300" cy="150" r="110" stroke="#2b2a27" stroke-opacity=".12"/>
+      <circle cx="210" cy="300" r="5" fill="#4f5a3c"/>
+      <circle cx="390" cy="300" r="5" fill="#a8744f"/>
+      <circle cx="300" cy="150" r="5" fill="#2b2a27" fill-opacity=".5"/>
+      <path d="M210 300 L300 150 L390 300 Z" stroke="#2b2a27" stroke-opacity=".14" stroke-dasharray="3 6"/>
+    </svg>
+  </div>
+  <div class="wrap hero__inner">
+    <p class="hero__kicker rv" style="--d:0"><span class="dot"></span>第4期 受講生募集</p>
+    <p class="hero__en rv" style="--d:1">People, Places &amp; Homes.</p>
+    <h1 class="hero__title rv" id="hero-title" style="--d:2">
+      <span>人と、まちと、</span><span>住まいをつなぐ</span><span>仕事を学ぶ。</span>
+    </h1>
+    <p class="hero__sub rv" style="--d:3">幸せな移住を実現したい人の夢を叶える「移住サポーター」へ。不動産スキル×移住相談を、6ヶ月・少人数制で身につける講座です。</p>
+
+    <div class="hero__name rv" style="--d:4">
+      <strong>移住サポーター養成講座</strong><em>第4期</em>
+    </div>
+    <dl class="facts rv" style="--d:5">
+      <div><dt>Term</dt><dd>6ヶ月間<small>少人数制</small></dd></div>
+      <div><dt>Style</dt><dd>オンライン／熱海<small>Zoom・熱海市銀座町</small></dd></div>
+      <div><dt>Fee</dt><dd>198,000円<small>税込・分割払いあり</small></dd></div>
+      <div><dt>Since</dt><dd>2023年〜<small>年1回開催・今期で4期目</small></dd></div>
+    </dl>
+    <div class="hero__ctas rv" style="--d:6">
+      <a class="btn btn--primary" href="#info">募集概要を見る<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.4"/></svg></a>
+      <a class="btn btn--ghost" href="#why">講座について読む</a>
+    </div>
+  </div>
+</section>
+
+<!-- 02 WHY -->
+<section class="sec sec--tint" id="why" aria-labelledby="why-title">
+  <div class="wrap why__grid">
+    <div>
+      <p class="label rv"><b>02</b>&nbsp;Why</p>
+      <h2 class="h2 rv" id="why-title">移住の相談は、<br>「どこへ」だけでは<br>終わらない。</h2>
+    </div>
+    <div>
+      <p class="rv">講師の中屋香織は、13年間の不動産業界でのキャリアを経て、2017年に家族で熱海へ移住。移住後、移住を考え始めた人からの相談が後を絶たなくなったことが、現在の活動の始まりです。</p>
+      <p class="rv">暮らしたい地域を選ぶこと。そこで住まいを見つけること。その両方がかみ合ってはじめて、移住は「幸せな移住」になります。</p>
+      <blockquote class="quote rv">人と、移住先（地域・住まい）の幸せなマッチングをできる人を増やしたい。</blockquote>
+      <p class="rv" style="margin-top:24px">この講座は、そんな想いから2023年に始まりました。特定のまちへの移住促進ではなく、イキイキと自分らしく暮らす人を増やすために。</p>
+      <div class="fromto rv" aria-label="移住する人から、移住を支える人へ">
+        <div><b>MOVE</b>移住する人</div><i aria-hidden="true">→</i><div><b>SUPPORT</b>移住を支える人</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 WHAT -->
+<section class="sec sec--dark" id="what" aria-labelledby="what-title">
+  <div class="wrap">
+    <p class="label rv"><b>03</b>&nbsp;Relocation supporter</p>
+    <h2 class="h2 rv" id="what-title">移住サポーターとは。</h2>
+    <p class="lead rv" style="color:#d9d3c4;max-width:36em">移住を希望する人に伴走し、暮らしの「妄想」から「実現」までを支えるプロフェッショナル。人と、地域と、住まいの間に立ち、幸せなマッチングをつくる存在です。</p>
+
+    <div class="equation rv">
+      <span><small>Real Estate</small>不動産スキル</span>
+      <span class="x" aria-hidden="true">×</span>
+      <span><small>Consulting</small>移住相談</span>
+    </div>
+
+    <div class="connect rv" aria-label="移住サポーターがつなぐもの">
+      <div><small>People</small><b>人</b></div>
+      <div><small>Local</small><b>地域</b></div>
+      <div><small>Home</small><b>住まい</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 FOR WHOM -->
+<section class="sec" id="for" aria-labelledby="for-title">
+  <div class="wrap">
+    <p class="label rv"><b>04</b>&nbsp;For whom</p>
+    <h2 class="h2 rv" id="for-title">こんな方へ。</h2>
+    <ul class="who">
+      <li class="rv"><span class="no">01</span><p><strong>誰かの移住を支えたい方</strong>幸せな移住を実現したい人の、夢を叶える側にまわりたい方。</p></li>
+      <li class="rv"><span class="no">02</span><p><strong>移住サポートを仕事にしたい方</strong>不動産の知識と移住相談を掛け合わせ、自分の強みを活かして活動していきたい方。</p></li>
+      <li class="rv"><span class="no">03</span><p><strong>自分らしい暮らしを実現したい方</strong>これから自分自身が移住したい方も、受講することができます。</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 05 WHAT YOU WILL LEARN -->
+<section class="sec sec--tint" id="learn" aria-labelledby="learn-title">
+  <div class="wrap">
+    <p class="label rv"><b>05</b>&nbsp;What you will learn</p>
+    <h2 class="h2 rv" id="learn-title">6ヶ月で学ぶ、<br>5つのテーマ。</h2>
+    <div class="themes">
+      <article class="theme rv">
+        <div class="theme__no">01</div>
+        <div><p class="theme__tag">Mindset</p><h3>移住サポート概論</h3><p>これからの時代に、なぜ移住サポーターが必要なのか。プロとしての心構えと、基本のスキル。</p></div>
+      </article>
+      <article class="theme rv">
+        <div class="theme__no">02</div>
+        <div><p class="theme__tag">Know-how</p><h3>幸せな移住を実現するノウハウ</h3><p>理想の移住暮らしを4ヶ月で実現していく、実践的なノウハウ。</p></div>
+      </article>
+      <article class="theme rv">
+        <div class="theme__no">03</div>
+        <div><p class="theme__tag">Real Estate</p><h3>不動産の基本的知識とサポート方法、体制づくり</h3><p>家探しの基本、不動産会社との付き合い方、協力体制のつくり方。</p></div>
+      </article>
+      <article class="theme rv">
+        <div class="theme__no">04</div>
+        <div><p class="theme__tag">Career</p><h3>自分の強みを見極め、移住サポートで稼ぐ方法<span class="badge">特別講義</span></h3><p>ゲスト講師による特別講義。自分らしい移住サポーターとしてのブランドのつくり方。</p></div>
+      </article>
+      <article class="theme theme--wide rv">
+        <div class="theme__no">05</div>
+        <div><p class="theme__tag">Become</p><h3>求められる移住サポーターになろう！</h3><p>「この人にお願いしたい」と選ばれる移住サポーターになるために。</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 06 PROGRAM -->
+<section class="sec" id="program" aria-labelledby="program-title">
+  <div class="wrap program-grid">
+    <div>
+      <p class="label rv"><b>06</b>&nbsp;Program</p>
+      <h2 class="h2 rv" id="program-title">受講の流れ。</h2>
+      <p class="rv" style="color:var(--ink-soft)">オンライン（Zoom）と、熱海市銀座町の会場でのリアル開催。遠方の方もオンラインで参加できます。</p>
+    </div>
+    <ol class="flow">
+      <li class="rv"><p class="step">Step 01</p><h3>説明会・お申し込み</h3><p>講座の内容や進め方を確認したうえで申し込み。定員に達し次第、募集終了となります。</p></li>
+      <li class="rv is-main"><p class="step">Step 02 — 6 months</p><h3>6ヶ月間の講座</h3><p>少人数制で5つのテーマを学びながら、受講期間中は講師との個別相談や、受講生同士の交流の場も活用できます。</p>
+        <div class="mini"><span>5つのテーマ</span><span>個別相談 2回</span><span>情報交換＆交流</span></div></li>
+      <li class="rv"><p class="step">Step 03 — After</p><h3>卒業後</h3><p>学んだことを実践に落とし込む伴走セッションを、特別価格で利用できます。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 07 SUPPORT -->
+<section class="sec sec--tint" id="support" aria-labelledby="support-title">
+  <div class="wrap">
+    <p class="label rv"><b>07</b>&nbsp;Support</p>
+    <h2 class="h2 rv" id="support-title">学びを、<br>ひとりにしない。</h2>
+    <div class="cards">
+      <article class="card rv">
+        <p class="card__tag">Personal Session</p>
+        <h3>講師による個別相談</h3>
+        <p>講師・中屋香織による個別相談を、受講期間中2回まで無料で受けられます。</p>
+        <p class="value">通常 <b>10,000円</b> / 60分</p>
+      </article>
+      <article class="card rv">
+        <p class="card__tag">Community</p>
+        <h3>情報交換＆交流の場</h3>
+        <p>同じ志を持つ受講生同士で、情報交換や交流ができる場があります。</p>
+      </article>
+      <article class="card rv">
+        <p class="card__tag">After Support</p>
+        <h3>卒業後のサポート</h3>
+        <p>学んだことを実践に落とし込む伴走セッションで、卒業後の行動をサポート。特別価格で利用できます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 08 ABOUT -->
+<section class="sec" id="about" aria-labelledby="about-title">
+  <div class="wrap about">
+    <div class="portrait rv" role="img" aria-label="講師 中屋香織（写真は公式素材に差し替え予定）">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <circle cx="200" cy="210" r="120" fill="none" stroke="#4f5a3c" stroke-opacity=".25"/>
+        <circle cx="200" cy="210" r="70" fill="#d8c7a6" fill-opacity=".45"/>
+        <path d="M0 420 Q200 360 400 420" fill="none" stroke="#a8744f" stroke-opacity=".35"/>
+      </svg>
+      <p>PHOTO — KAORI NAKAYA</p>
+    </div>
+    <div>
+      <p class="label rv"><b>08</b>&nbsp;About</p>
+      <p class="about__role rv">講師 ／ ライフスタイルデザイナー・Atami Stayle 代表</p>
+      <h2 class="about__name rv" id="about-title">中屋 香織</h2>
+      <p class="about__en rv">KAORI NAKAYA</p>
+      <p class="rv">静岡県浜松市出身、熱海市在住。宅地建物取引士。東京R不動産など13年間の不動産業界でのキャリアを経て、2017年に熱海へ移住。縁のなかった地域で、移住サポーターとして独立しました。</p>
+      <p class="rv">Atami Stayle（アタミステイル）では、自分らしい暮らしの「妄想〜実現」までをトータルでサポート。移住や家探しのプロセスに伴走しています。</p>
+      <ul class="career rv">
+        <li><span>Origin</span>静岡県浜松市出身・熱海市在住</li>
+        <li><span>Career</span>不動産業界で13年（東京R不動産 ほか）</li>
+        <li><span>2017</span>熱海へ移住</li>
+        <li><span>2023</span>移住サポーター養成講座 開講</li>
+        <li><span>License</span>宅地建物取引士</li>
+      </ul>
+      <p class="area rv">主な活動エリア：静岡県・神奈川県・伊豆周辺（熱海、三島、伊東、真鶴、湯河原 など）</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 COURSE INFORMATION -->
+<section class="sec sec--tint" id="info" aria-labelledby="info-title">
+  <div class="wrap">
+    <p class="label rv"><b>09</b>&nbsp;Course information</p>
+    <h2 class="h2 rv" id="info-title">募集概要</h2>
+    <div class="info rv">
+      <div class="info__head">
+        <p class="en">RELOCATION SUPPORTER COURSE — VOL.04</p>
+        <h3>移住サポーター養成講座 <span style="white-space:nowrap">第4期</span></h3>
+      </div>
+      <dl>
+        <div class="row"><dt>受講料</dt><dd>
+          <span class="price">198,000<small>円（税込）一括</small></span>
+          <div class="split" aria-label="分割払い">
+            <div><b>18,500円</b>×12回</div>
+            <div><b>36,000円</b>×6回</div>
+            <div><b>70,000円</b>×3回</div>
+          </div>
+        </dd></div>
+        <div class="row"><dt>期間</dt><dd>6ヶ月間</dd></div>
+        <div class="row"><dt>形式</dt><dd>少人数制<br>オンライン（Zoom）／リアル開催（静岡県熱海市銀座町）<p class="caution">遠方の方はオンラインでの参加も可能です。</p></dd></div>
+        <div class="row"><dt>講師</dt><dd>中屋香織（ライフスタイルデザイナー／Atami Stayle 代表）</dd></div>
+        <div class="row"><dt>受講特典</dt><dd>・講師による個別相談 2回無料（通常10,000円／60分）<br>・情報交換＆交流の場<br>・卒業後のサポートを特別価格で利用可能</dd></div>
+        <div class="row"><dt>募集</dt><dd>定員に達し次第、予告なく募集終了となります。<p class="caution">開講日程・説明会・お申し込み方法は、公式の募集ページをご確認ください。</p></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- 10 FINAL MESSAGE -->
+<section class="sec" id="message" aria-labelledby="message-title">
+  <div class="wrap final">
+    <p class="label rv"><b>10</b>&nbsp;Message</p>
+    <h2 class="final__copy rv" id="message-title">自分の移住経験も、<br>これまでのキャリアも、<br>誰かの「次の暮らし」の力になる。</h2>
+    <p class="rv">中屋自身、縁のなかった地域で移住サポーターとして独立しました。暮らしを変えたい人の隣に立ち、地域と住まいへの橋をかけること。それは、移住する人のためだけでなく、支える側にとっても、新しい働き方のひとつになりえます。</p>
+    <p class="rv">移住を「する」側から、「支える」側へ。その一歩を、第4期の仲間と一緒に。</p>
+  </div>
+</section>
+
+<!-- 11 FINAL CTA -->
+<section class="cta-final" aria-labelledby="cta-title">
+  <div class="wrap">
+    <p class="en rv">From moving, to supporting.</p>
+    <h2 class="rv" id="cta-title">移住する人から、<br>移住を支える人へ。</h2>
+    <p class="name rv">移住サポーター養成講座　第4期</p>
+    <div class="btns rv">
+      <a class="btn btn--light" href="https://note.com/kaorinakaya_note/n/n14f73d74281d" target="_blank" rel="noopener">募集詳細を見る（note）<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.4"/></svg></a>
+      <a class="btn btn--line" href="#info">募集概要に戻る</a>
+    </div>
+    <p class="sub rv">定員に達し次第、募集終了となります。</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <p class="demo">DESIGN PROPOSAL / DEMO</p>
+    <p>本ページは公開情報をもとに制作した非公式のデザイン提案用デモです。主催者公式サイトではありません。</p>
+    <p>掲載内容は制作時点の公開情報に基づきます。最新・正式な情報は主催者の募集ページをご確認ください。</p>
+    <p class="src">参照：<a href="https://note.com/kaorinakaya_note/n/n14f73d74281d" target="_blank" rel="noopener">募集note</a>／<a href="https://nakayakaori.com/free/supporter" target="_blank" rel="noopener">Atami Stayle 公式サイト</a></p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <p class="sticky__txt"><b>移住サポーター養成講座 第4期</b>6ヶ月・198,000円（税込）</p>
+  <a href="#info" tabindex="-1">募集概要</a>
+</div>
+
+<script>
+(function(){
+  var hd=document.getElementById('hd'),st=document.getElementById('sticky'),info=document.getElementById('info');
+  function onScroll(){
+    var y=window.scrollY;
+    hd.classList.toggle('is-scrolled',y>40);
+    var r=info.getBoundingClientRect();
+    var near=r.top<window.innerHeight&&r.bottom>0;
+    var nearEnd=(window.innerHeight+y)>=document.body.scrollHeight-260;
+    st.classList.toggle('is-show',y>window.innerHeight*.8&&!near&&!nearEnd);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('is-in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
