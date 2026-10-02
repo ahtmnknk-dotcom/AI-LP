@@ -1,0 +1,30 @@
+# Netlify: ビルド不要。リポジトリのルートをそのまま公開します。
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+# 事例の画像・動画はファイル名ごと差し替える運用なので長めにキャッシュ
+[[headers]]
+  for = "/assets/work/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# リポジトリ内の作業用ファイルは公開しない
+[[redirects]]
+  from = "/README.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404"
+  status = 404
+  force = true

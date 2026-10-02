@@ -23,19 +23,24 @@ favicon.ico, site.webmanifest, robots.txt, sitemap.xml
 | 赤い句点 | Re.Live の「.」＝アイデア。THINK. MAKE. DELIVER. SELL. と工程を進んでいく |
 | 1本の工程線 | 4事業を一覧にせず、スクロールに合わせてアイデア（赤い点）が進む一本の流れとして表現 |
 
-## 公開方法（GitHub Pages の例）
+## 公開方法（Netlify）
 
-1. GitHub のリポジトリ → Settings → Pages
-2. Source: `Deploy from a branch` / Branch: `main`（または公開したいブランチ）・`/ (root)`
-3. 公開URLは `https://ahtmnknk-dotcom.github.io/AI-LP/`
-   - 注意：`claude/milkune-stories-lp-r1c23f` ブランチ（MILKUNE STORIES）も同じURLを公開先に設定しています。同じリポジトリのGitHub Pagesで公開できるのは1つだけなので、どちらかを別の場所（Netlifyなど）で公開してください
+ビルドは不要です。設定は `netlify.toml` に入っています。
 
-独自ドメインで公開する場合は、次の箇所のURLを書き換えてください。
+1. Netlify にログイン →「Add new site」→「Import an existing project」→ GitHub →
+   リポジトリ `ahtmnknk-dotcom/AI-LP` を選ぶ
+2. Branch to deploy：このサイトのブランチ（`claude/modest-goodall-0619uj`、または main に取り込んだ後なら `main`）
+3. Build command：空欄 / Publish directory：`.`（`netlify.toml` から自動で入ります）→「Deploy」
+4. Site configuration →「Change site name」で **`next-relive`** にする
+   → 公開URLが `https://next-relive.netlify.app/` になります
+
+サイト内のURL（canonical / OGP / sitemap / robots / 構造化データ）は `https://next-relive.netlify.app/` で設定済みです。
+`next-relive` が使えなかった場合や独自ドメインにする場合は、次の箇所をまとめて書き換えてください。
 
 - `index.html` の `canonical` / `og:url` / `og:image` / JSON-LD の `url`
 - `robots.txt` / `sitemap.xml`
 
-Netlify・Cloudflare Pages などでも、そのままアップロードすれば動きます。
+GitHub Pages は MILKUNE STORIES のLPが使う想定なので、このサイトでは使いません。
 
 ## お問い合わせフォームの設定（公開前に必須）
 
