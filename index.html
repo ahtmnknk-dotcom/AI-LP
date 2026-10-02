@@ -458,7 +458,7 @@
           <li class="case" id="work-hitotsume">
             <div class="case__stage" style="--stage: #E6E5E0" data-case>
               <div class="device device--pc">
-                <span class="device__bar" aria-hidden="true"><i></i><i></i><i></i><em>hitotsume</em></span>
+                <span class="device__bar" aria-hidden="true"><i></i><i></i><i></i><em>hitotsume-marketing.netlify.app</em></span>
                 <picture><source type="image/webp" srcset="assets/work/hitotsume-pc-960.webp 960w, assets/work/hitotsume-pc.webp 1600w" sizes="(min-width: 1024px) 64vw, 86vw"><img src="assets/work/hitotsume-pc.jpg" width="1600" height="1000" alt="「ひとつめ。」のLPのPC表示。「そのマーケティング、本当に今必要ですか？」という見出し" loading="lazy" decoding="async"></picture>
               </div>
               <div class="device device--sp" data-parallax>
@@ -473,7 +473,7 @@
               </div>
               <div class="case__body">
                 <p>マーケティング支援サービス「ひとつめ。」のLP。「そのマーケティング、本当に今必要ですか？」から始まり、今やるべきことをひとつに絞る支援の考え方を、余白の多い構成で伝えています。</p>
-                <a class="link-under" href="https://lpstudio298.netlify.app/works/hitotsume/" target="_blank" rel="noopener">サイトを見る<span class="sr">（新しいタブで開きます）</span> ↗</a>
+                <a class="link-under" href="https://hitotsume-marketing.netlify.app/" target="_blank" rel="noopener">サイトを見る<span class="sr">（新しいタブで開きます）</span> ↗</a>
               </div>
             </div>
           </li>
@@ -615,12 +615,11 @@
           </div>
         </div>
 
-        <form class="form" action="https://formsubmit.co/relivenabi@gmail.com" method="POST" data-form novalidate>
-          <input type="hidden" name="_subject" value="【Next Re.Live サイト】ご相談フォーム">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
+        <form class="form" name="contact" action="/" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-form novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <input type="hidden" name="subject" data-remove-prefix value="【Next Re.Live サイト】ご相談フォーム">
           <div class="form__hp" aria-hidden="true">
-            <label>この欄は入力しないでください<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+            <label>この欄は入力しないでください<input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label>
           </div>
 
           <div class="field">

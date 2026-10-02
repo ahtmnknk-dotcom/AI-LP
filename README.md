@@ -42,24 +42,23 @@ favicon.ico, site.webmanifest, robots.txt, sitemap.xml
 
 GitHub Pages は MILKUNE STORIES のLPが使う想定なので、このサイトでは使いません。
 
-## お問い合わせフォームの設定（公開前に必須）
+## お問い合わせフォームの設定（Netlify Forms）
 
-フォームは [FormSubmit](https://formsubmit.co/) 経由で `relivenabi@gmail.com` に届きます。APIキーは不要ですが、最初に1回だけ有効化が必要です。
+フォームは Netlify Forms で受け付けます。外部サービスやAPIキーは不要です。
 
-1. サイト公開後、フォームから1回テスト送信する
-2. `relivenabi@gmail.com` に FormSubmit から確認メールが届く →「Activate Form」をクリック
-3. 以降の送信はメールで届く（件名：【Next Re.Live サイト】ご相談フォーム）
-4. （推奨）有効化後のメールに記載されるランダムな文字列のエンドポイントに置き換えると、HTML上にメールアドレスを出さずに済む
-   - `index.html` の `<form action="https://formsubmit.co/relivenabi@gmail.com">` の部分を置き換え
+1. Netlify のプロジェクト画面 →「Forms」→ **「Enable form detection」** を押す
+2. 「Deploys」→「Trigger deploy」→「Deploy project」で再デプロイする（フォームはデプロイ時に登録されます）
+3. 「Project configuration」→「Notifications」→「Emails」→「Add notification」→
+   **「Form submission notification」** を選び、送信先を `relivenabi@gmail.com` にする
+4. 公開サイトからテスト送信し、「Forms」→ `contact` に届いていること、メールが来ることを確認
 
 動作の仕様:
 
 - JavaScript有効時は非同期送信（ページ遷移なし）。入力チェック、送信中表示、完了メッセージあり
 - 送信に失敗した場合は入力内容を残したまま、内容入りの `mailto:` リンクを表示
-- JavaScript無効時は通常のフォーム送信として動作
-- スパム対策としてハニーポット欄（`_honey`）あり
-
-他のサービスに切り替える場合は、`form` の `action` を変更してください（Formspree、Netlify Forms など）。`main.js` は `formsubmit.co/` を `formsubmit.co/ajax/` に置き換えて送信するので、別サービスに切り替えるときは `initForm()` の `endpoint` も合わせて変更します。
+- JavaScript無効時は通常のフォーム送信として動作（Netlify標準の完了ページが表示されます）
+- スパム対策としてハニーポット欄（`bot-field`）あり。Netlify側のスパムフィルタも有効です
+- 無料プランでは月100件まで受け付けられます
 
 ## 制作事例（PROJECTS）の素材
 

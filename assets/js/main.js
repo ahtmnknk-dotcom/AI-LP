@@ -269,8 +269,8 @@
     var submit = $('button[type="submit"]', form);
     var submitLabel = $('[data-submit-label]', form);
     var MAIL = 'relivenabi@gmail.com';
-    // FormSubmit の AJAX エンドポイント（action と同じ宛先）
-    var endpoint = form.getAttribute('action').replace('formsubmit.co/', 'formsubmit.co/ajax/');
+    // Netlify Forms: 公開時にHTML内のフォームが登録され、同じサイトへのPOSTで受け付けられる
+    var endpoint = form.getAttribute('action') || '/';
 
     var messages = {
       name: 'お名前を入力してください。',
@@ -347,16 +347,13 @@
         return;
       }
       // honeypot: bots fill this, people don't
-      if (form.elements._honey && form.elements._honey.value) {
+      if (form.elements['bot-field'] && form.elements['bot-field'].value) {
         form.reset();
         showStatus('<strong>送信しました。</strong>');
         return;
       }
 
-      var data = new FormData(form);
-      var payload = {};
-      data.forEach(function (v, k) { payload[k] = v; });
-      payload._replyto = payload.email;
+      var body = new URLSearchParams(new FormData(form)).toString();
 
       submit.disabled = true;
       submitLabel.textContent = '送信しています…';
@@ -364,16 +361,11 @@
 
       fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload)
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
       })
         .then(function (res) {
-          return res.json().catch(function () { return {}; }).then(function (json) {
-            if (!res.ok || String(json.success) === 'false') {
-              throw new Error(json.message || 'HTTP ' + res.status);
-            }
-            return json;
-          });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
         })
         .then(function () {
           form.reset();
